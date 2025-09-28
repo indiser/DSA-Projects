@@ -1,108 +1,96 @@
-<div align="center">
+# 🚀 Complete DSA → FAANG Roadmap  
 
-# 🚀 DSA Project Roadmap: From Foundation to FAANG-Ready 🚀
+A structured **12-month journey** from absolute beginner to **FAANG interview-ready**, built on **DSA projects, core CS concepts, and system design**.  
 
-</div>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-C%2B%2B-blue.svg" alt="Language C++">
-  <img src="https://img.shields.io/badge/Build-CMake-green.svg" alt="Build CMake">
-  <img src="https://img.shields.io/badge/Status-In%20Progress-yellow.svg" alt="Status In Progress">
-</p>
-
-This repository documents my journey through a comprehensive Data Structures & Algorithms (DSA) roadmap. The goal is to build a portfolio of projects with progressively increasing difficulty, starting from fundamental concepts and building towards advanced, interview-ready system design challenges.
+This roadmap is based on the original **Complete DSA Project Roadmap (PDF)** with added **improvements**:  
+✔️ Competitive programming practice  
+✔️ Core CS fundamentals (OS, DBMS, Networks)  
+✔️ Cloud & DevOps basics  
+✔️ Mock interviews + behavioral prep  
+✔️ Portfolio polish (GitHub, blogs, deployments)  
 
 ---
 
-### **Table of Contents**
-* [The Project Roadmap](#-the-project-roadmap)
-* [Key Learning Milestones](#-key-learning-milestones)
-* [How to Navigate This Repo](#-how-to-navigate-this-repo)
+## 📌 Roadmap Overview  
+
+| Phase | Duration | Focus | Daily Hours | Projects | Goals |
+|-------|----------|-------|-------------|----------|-------|
+| **Foundation** | Months 1–2 | Basic DSA | 1–2 hrs | 6 | 50+ Easy problems, implement all DS |
+| **Core DSA** | Months 2–4 | Trees, Hashing, Sorting | 2–3 hrs | 4 | 75+ Medium problems, recursion mastery |
+| **Advanced DSA** | Months 4–6 | Graphs, DP, Tries, Huffman | 3–4 hrs | 4 | 100+ Medium, DP + Graphs strong |
+| **System Design** | Months 6–9 | Real-world systems | 4–5 hrs | 4–6 | 50+ Hard problems, system design prep |
+| **FAANG Prep** | Months 9–12 | Specialization + Interviews | 5–6 hrs | 2–4 | 600–700 problems total, portfolio ready |
 
 ---
 
-## 🗺️ The Project Roadmap
+## 📂 Project Milestones  
 
-The roadmap is broken down into five distinct phases. Each phase's project list is in a collapsible section below.
+### 🟢 Phase 1 – Foundation (Months 1–2)  
+- [ ] Number Guessing Game 🎲  
+- [ ] Calculator w/ History ➕  
+- [ ] To-Do List App ✅  
+- [ ] Student Grade Manager 🎓  
 
-<details>
-<summary><strong>Phase 1: Foundation Building (Months 1-2)</strong></summary>
+### 🔵 Phase 2 – Core DSA (Months 2–4)  
+- [ ] Library Management System 📚  
+- [ ] Binary Search Tree 🌳  
+- [ ] Sorting Visualizer 📊  
+- [ ] Maze Solver 🧩  
 
-| # | Project Name | Core DSA Concepts | Status |
-| :--- | :--- | :--- | :--- |
-| 1 | Number Guessing Game with Statistics | [cite_start]Linear search, basic sorting [cite: 170] | ⚫ Not Started |
-| 2 | Simple Calculator with History | [cite_start]Stack operations, basic arithmetic algorithms [cite: 174] | ⚫ Not Started |
-| 3 | To-Do List Application | [cite_start]CRUD operations, list manipulation [cite: 179] | ⚫ Not Started |
-| 4 | Student Grade Management System | [cite_start]Bubble sort, selection sort, linear search [cite: 183] | ⚫ Not Started |
-| 5 | Library Management System | [cite_start]Hash functions, collision handling [cite: 188] | ⚫ Not Started |
-| 6 | Binary Search Tree Implementation | [cite_start]BST operations, DFS traversals [cite: 192] | ⚫ Not Started |
+### 🟣 Phase 3 – Advanced DSA (Months 4–6)  
+- [ ] Spell Checker (Trie) 🔤  
+- [ ] File Compression Tool (Huffman) 📦  
+- [ ] Social Network Recommender 🤝  
+- [ ] Travel Route Planner 🗺️  
 
-</details>
+### 🟠 Phase 4 – System Design & Scaling (Months 6–9)  
+- [ ] Distributed Cache (Mini-Redis) ⚡  
+- [ ] Real-Time Chat App 💬  
+- [ ] Search Engine + Crawler 🔎  
+- [ ] Mini Git (Version Control) 🗂️  
 
-<details>
-<summary><strong>Phase 2: Intermediate Skills (Months 2-4)</strong></summary>
-
-| # | Project Name | Core DSA Concepts | Status |
-| :--- | :--- | :--- | :--- |
-| 7 | Sorting Algorithm Visualizer | [cite_start]Merge sort, quick sort, heap sort, time complexity [cite: 199] | ⚫ Not Started |
-| 8 | Maze Solver | [cite_start]BFS, DFS, pathfinding [cite: 203] | ⚫ Not Started |
-| 9 | Spell Checker with Trie | [cite_start]Trie construction, string matching [cite: 208] | ⚫ Not Started |
-| 10 | File Compression Tool (Huffman Coding) | [cite_start]Priority queues, Huffman algorithm, bit manipulation [cite: 212] | ⚫ Not Started |
-
-</details>
-
-<details>
-<summary><strong>Phase 3: Advanced Intermediate (Months 4-6)</strong></summary>
-
-| # | Project Name | Core DSA Concepts | Status |
-| :--- | :--- | :--- | :--- |
-| 11 | Social Network Friend Recommendation | [cite_start]Adjacency lists/matrices, BFS/DFS, shortest paths [cite: 219] | 🟢 Completed ([View Code](./SocialMediaRecomendation)) |
-| 12 | Travel Route Planner | [cite_start]Dijkstra's algorithm, A* search [cite: 223] | 🟡 In Progress |
-| 13 | Stock Price Analysis System | [cite_start]Sliding window, DP patterns, heap operations [cite: 228] | ⚫ Not Started |
-| 14 | Text Analysis Tool (LCS, Edit Distance) | [cite_start]Longest Common Subsequence, Edit Distance [cite: 232] | ⚫ Not Started |
-
-</details>
-
-<details>
-<summary><strong>Phase 4: FAANG Interview Preparation (Months 6-9)</strong></summary>
-
-| # | Project Name | Core DSA Concepts | Status |
-| :--- | :--- | :--- | :--- |
-| 15 | Distributed Cache System (Mini-Redis) | [cite_start]LRU/LFU cache, consistent hashing, thread safety [cite: 239] | ⚫ Not Started |
-| 16 | Real-Time Chat Application | [cite_start]Priority queues, graph algorithms [cite: 243] | ⚫ Not Started |
-| 17 | Search Engine with Web Crawler | [cite_start]Inverted index, PageRank algorithm [cite: 247] | ⚫ Not Started |
-| 18 | Code Version Control System (Mini-Git) | [cite_start]Merkle trees, graph traversal, diff algorithms [cite: 251] | ⚫ Not Started |
-| 19 | Machine Learning Framework | [cite_start]Matrix operations, gradient descent, decision trees [cite: 256] | ⚫ Not Started |
-| 20 | Database Engine Implementation | [cite_start]B+ trees, query algorithms, transaction management [cite: 260] | ⚫ Not Started |
-
-</details>
-
-<details>
-<summary><strong>Phase 5: FAANG Interview Mastery (Months 9-12)</strong></summary>
-
-| # | Project Name | Core DSA Concepts | Status |
-| :--- | :--- | :--- | :--- |
-| 21 | Blockchain Implementation | [cite_start]Hash chains, consensus algorithms [cite: 267] | ⚫ Not Started |
-| 22 | Recommendation Engine | [cite_start]Collaborative filtering, graph algorithms [cite: 271] | ⚫ Not Started |
-| 23 | E-commerce Order Processing | [cite_start]Distributed systems, inventory algorithms [cite: 275] | ⚫ Not Started |
-| 24 | Ride-Sharing Service (Uber Clone) | [cite_start]Geospatial algorithms, matching algorithms [cite: 279] | ⚫ Not Started |
-
-</details>
+### 🔴 Phase 5 – FAANG Interview Prep (Months 9–12)  
+- [ ] Machine Learning Framework 🤖  
+- [ ] Database Engine 🗄️  
+- [ ] Uber Clone 🚖  
 
 ---
 
-## 🎯 Key Learning Milestones
+## 🎯 Success Checkpoints  
 
-[cite_start]This repository is a practical exercise to achieve the following competencies, as outlined in the roadmap [cite: 283-302, 355, 359, 362, 366, 370-371].
-
-* [cite_start]**⏳ Months 1-2:** Implement basic data structures from scratch (Arrays, Linked Lists, Stacks, Queues) and master time/space complexity analysis[cite: 284, 286].
-* [cite_start]**🎯 Months 2-4:** Achieve proficiency in core sorting/searching algorithms, trees, graphs, and hash tables[cite: 288, 309].
-* [cite_start]**📈 Months 4-6:** Master advanced topics like graph algorithms (Dijkstra's, A*) and Dynamic Programming[cite: 292, 313].
-* [cite_start]**🖥️ Months 6-9:** Develop a strong understanding of system design principles and concurrent data structures[cite: 296, 317].
-* [cite_start]**🏆 Months 9-12:** Build a portfolio of 20+ projects, achieve expert-level DSA knowledge, and become fully prepared for top-tier technical interviews[cite: 301, 302, 371].
+- **Month 2:** ✅ 50+ Easy problems, all basic DS  
+- **Month 4:** ✅ 75+ Medium, recursion + sorting mastery  
+- **Month 6:** ✅ 100+ Medium, strong DP + Graphs  
+- **Month 9:** ✅ 50+ Hard, system design proficiency  
+- **Month 12:** 🎉 20+ projects, 600–700 problems solved, FAANG-ready  
 
 ---
 
-## 🧭 How to Navigate This Repo
+## 📖 Additional Improvements  
 
-Each completed project resides in its own directory. Inside, you will find the source code, a `CMakeLists.txt` for building the project, and a dedicated `README.md` with details about that specific project.
+- 📌 **Competitive Programming** → Codeforces / AtCoder (from Month 3)  
+- 📌 **Core CS Subjects** → OS, DBMS, Networks (from Month 4)  
+- 📌 **Cloud & DevOps** → Deploy projects to AWS/GCP, learn Docker + Kubernetes  
+- 📌 **Mock Interviews** → Weekly practice (Pramp, Interviewing.io)  
+- 📌 **Portfolio Polish** → GitHub READMEs, 2–3 technical blogs  
+
+---
+
+## 🛠️ Tech Stack  
+
+- **Languages:** C++ / Java / Python (pick one primary + one secondary)  
+- **DSA Platforms:** LeetCode, Codeforces, AtCoder  
+- **System Design Resources:** Grokking SDI, Exponent, GfG System Design  
+- **Deployment:** AWS / GCP / Docker / Kubernetes  
+
+---
+
+## 🏆 End Goal (Month 12)  
+- 200+ Easy, 300–400+ Medium, 100+ Hard problems solved  
+- 20+ projects (with GitHub portfolio)  
+- Strong System Design + Core CS fundamentals  
+- FAANG Interview Ready 🚀  
+
+---
+
+> 💡 *“Consistent effort + smart roadmap = FAANG readiness.”*  
