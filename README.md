@@ -67,12 +67,12 @@ The full roadmap consists of 24 projects divided into five phases.
 
 | # | Project | Core DSA Concepts | Status |
 | :--- | :--- | :--- | :--- |
-| 1 | Number Guessing Game | Linear search, basic sorting | ⚫ Not Started |
-| 2 | Simple Calculator with History | Stack operations, arithmetic algorithms | ⚫ Not Started |
-| 3 | To-Do List Application | CRUD operations, list manipulation | ⚫ Not Started |
-| 4 | Student Grade Management | Bubble sort, selection sort, linear search | ⚫ Not Started |
-| 5 | Library Management System | Hash functions, collision handling | ⚫ Not Started |
-| 6 | Binary Search Tree | BST operations, DFS traversals | ⚫ Not Started |
+| 1 | Number Guessing Game | Linear search, basic sorting | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Number%20Guessing)) |
+| 2 | Simple Calculator with History | Stack operations, arithmetic algorithms | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Calculator)) |
+| 3 | To-Do List Application | CRUD operations, list manipulation | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/ToDo%20List)) |
+| 4 | Student Grade Management | Bubble sort, selection sort, linear search | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Student%20Grade%20Management)) |
+| 5 | Library Management System | Hash functions, collision handling | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/LibraryManagementSystem)) |
+| 6 | Binary Search Tree | BST operations, DFS traversals | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/BinarySearchTreeImplementation)) |
 
 </details>
 
@@ -84,10 +84,10 @@ The full roadmap consists of 24 projects divided into five phases.
 
 | # | Project | Core DSA Concepts | Status |
 | :--- | :--- | :--- | :--- |
-| 7 | Sorting Algorithm Visualizer | Merge sort, quick sort, heap sort | ⚫ Not Started |
-| 8 | Maze Solver | BFS, DFS, pathfinding | ⚫ Not Started |
-| 9 | Spell Checker with Trie | Trie construction, string matching | ⚫ Not Started |
-| 10 | File Compression (Huffman Coding) | Priority queues, Huffman algorithm | ⚫ Not Started |
+| 7 | Sorting Algorithm Visualizer | Merge sort, quick sort, heap sort | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Visualizer)) |
+| 8 | Maze Solver | BFS, DFS, pathfinding | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Maze%20Solver)) |
+| 9 | Spell Checker with Trie | Trie construction, string matching | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Spell%20Checker)) |
+| 10 | File Compression (Huffman Coding) | Priority queues, Huffman algorithm | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Compression/Decompression)) |
 
 </details>
 
@@ -99,7 +99,7 @@ The full roadmap consists of 24 projects divided into five phases.
 
 | # | Project | Core DSA Concepts | Status |
 | :--- | :--- | :--- | :--- |
-| 11 | Social Network Recommender | Adjacency lists, BFS/DFS, shortest paths | 🟢 Completed ([View Project](./SocialMediaRecomendation/)) |
+| 11 | Social Network Recommender | Adjacency lists, BFS/DFS, shortest paths | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/SocialMediaRecommendation)) |
 | 12 | Travel Route Planner | Dijkstra's algorithm, A* search | 🟡 In Progress |
 | 13 | Stock Price Analysis | Sliding window, DP patterns, heaps | ⚫ Not Started |
 | 14 | Text Analysis Tool (LCS) | Longest Common Subsequence, Edit Distance | ⚫ Not Started |
