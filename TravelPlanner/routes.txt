@@ -1,0 +1,155 @@
+# Major City Connections with distances in km
+# Kolkata (0) connections
+0,1,1530
+0,2,1650
+0,3,1650
+0,4,1870
+0,5,1500
+0,6,550
+0,7,1030
+0,32,15
+0,33,650
+0,39,420
+# Delhi (1) connections
+1,2,1420
+1,3,2180
+1,4,2165
+1,5,1570
+1,6,1000
+1,10,280
+1,11,550
+1,22,230
+1,25,30
+1,27,25
+1,45,70
+1,47,250
+1,48,320
+# Mumbai (2) connections
+2,3,1340
+2,4,985
+2,5,710
+2,8,120
+2,9,525
+2,14,590
+2,15,35
+2,18,440
+2,24,180
+2,36,340
+2,38,20
+# Chennai (3) connections
+3,4,350
+3,5,630
+3,29,500
+3,30,460
+3,42,480
+3,43,340
+3,44,350
+3,49,270
+# Bengaluru (4) connections
+4,5,575
+4,29,360
+4,30,480
+4,41,275
+4,42,145
+# Hyderabad (5) connections
+5,13,490
+5,17,625
+5,34,275
+5,49,270
+# Patna (6) connections
+6,7,950
+6,11,340
+6,12,350
+6,33,200
+6,39,330
+# Guwahati (7) connections
+7,23,570
+# Pune (8) connections
+8,9,665
+8,14,540
+8,18,450
+8,24,150
+8,36,560
+# Ahmedabad (9) connections
+9,14,470
+9,18,110
+9,21,220
+9,46,320
+# Jaipur (10) connections
+10,14,490
+10,22,240
+10,47,240
+10,48,320
+# Lucknow (11) connections
+11,12,80
+11,22,350
+11,33,200
+11,45,480
+# Kanpur (12) connections
+12,22,430
+12,33,280
+# Nagpur (13) connections
+13,14,310
+13,16,350
+13,36,320
+# Indore (14) connections
+14,16,240
+14,18,420
+14,47,190
+# Bhopal (16) connections
+16,47,230
+16,48,120
+# Visakhapatnam (17) connections
+17,49,350
+# Vadodara (18) connections
+18,21,180
+18,46,380
+# Ludhiana (20) connections
+20,26,70
+20,31,150
+20,35,120
+# Rajkot (21) connections
+21,46,250
+# Agra (22) connections
+22,45,200
+22,48,120
+# Siliguri (23) connections
+23,32,550
+# Nashik (24) connections
+24,36,670
+# Faridabad (25) connections
+25,27,20
+25,45,40
+# Patiala (26) connections
+26,31,80
+26,35,200
+# Ghaziabad (27) connections
+27,45,25
+# Coimbatore (29) connections
+29,30,220
+29,42,180
+29,43,50
+# Madurai (30) connections
+30,43,140
+# Jalandhar (31) connections
+31,35,90
+# Howrah (32) connections
+32,40,5
+# Allahabad (33) connections
+33,39,420
+# Amritsar (35) connections
+35,31,90
+# Aurangabad (36) connections
+36,24,180
+# Dhanbad (37) connections
+37,39,160
+# Ranchi (39) connections
+39,37,160
+# Salem (44) connections
+44,43,45
+# Meerut (45) connections
+45,27,25
+# Kota (47) connections
+47,48,240
+# Gwalior (48) connections
+48,22,120
