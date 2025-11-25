@@ -1,40 +1,70 @@
-# Huffman File Compressor
+<div align="center">
 
-A command-line utility written in C++ for lossless file compression and decompression using the Huffman coding algorithm. This project is a practical implementation of key data structures and algorithms, including priority queues (min-heaps), binary trees, and bit manipulation for efficient data storage.
+# 🗜️ Huffman File Compressor
+
+**Lossless file compression using optimal prefix codes**
+
+<p>
+  <img src="https://img.shields.io/badge/C%2B%2B-11%2B-00599C?logo=cplusplus&logoColor=white" alt="C++11+">
+  <img src="https://img.shields.io/badge/Algorithm-Huffman%20Coding-brightgreen" alt="Huffman Coding">
+  <img src="https://img.shields.io/badge/Compression-Lossless-blue" alt="Lossless">
+  <img src="https://img.shields.io/badge/Status-Completed-success" alt="Completed">
+</p>
+
+A command-line utility for efficient file compression and decompression using the Huffman coding algorithm. Implements priority queues (min-heaps), binary trees, and bit manipulation for optimal data storage.
 
 ![Huffman Tree Visualization](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Huffman_tree_2.svg/1200px-Huffman_tree_2.svg.png)
-*<p align="center">An example of a Huffman Tree. Characters with higher frequencies are closer to the root.</p>*
+*An example of a Huffman Tree. Characters with higher frequencies are closer to the root.*
+
+</div>
 
 ---
 
-## Features
+## ✨ Features
 
-- **Compression**: Compresses any given file by generating optimal prefix codes for each character.
-- **Decompression**: Perfectly restores the original file from its compressed version.
-- **Binary Format**: Reads and writes data in binary mode to ensure file integrity across all platforms and file types.
-- **Header Metadata**: Stores a frequency table in the compressed file's header, allowing it to be self-contained and easily decompressed.
-- **Efficient**: Uses a `std::priority_queue` to efficiently build the Huffman tree and `std::unordered_map` for quick code lookups.
-
----
-
-## How It Works
-
-1.  **Frequency Analysis**: The compressor reads the input file to count the frequency of each character.
-2.  **Tree Construction**: A priority queue (min-heap) is used to build the Huffman tree. Nodes with the lowest frequencies are iteratively merged until a single root node remains.
-3.  **Code Generation**: The tree is traversed to generate a unique, variable-length binary code for each character. More frequent characters receive shorter codes.
-4.  **Encoding & Writing**: The original file is read again, and each character is replaced with its new binary code. These bits are packed into bytes and written to the output file, along with a header containing the frequency map needed for decompression.
-5.  **Decoding**: The decompressor reads the header to rebuild the exact same Huffman tree. It then reads the compressed data bit by bit, traversing the tree to find the original characters and write them to the output file.
+| Feature | Description |
+|---------|-------------|
+| 🗜️ **Compression** | Generates optimal prefix codes for each character |
+| 📂 **Decompression** | Perfectly restores original files with zero data loss |
+| 💾 **Binary Format** | Cross-platform file integrity for all file types |
+| 📋 **Self-Contained** | Embedded frequency table for standalone decompression |
+| ⚡ **Efficient** | Priority queue + hash map for optimal performance |
 
 ---
 
-## Getting Started
+## 🔧 How It Works
+
+```mermaid
+graph LR
+    A[Input File] --> B[Frequency Analysis]
+    B --> C[Build Huffman Tree]
+    C --> D[Generate Codes]
+    D --> E[Encode & Compress]
+    E --> F[Compressed File]
+    F --> G[Read Header]
+    G --> H[Rebuild Tree]
+    H --> I[Decode Bits]
+    I --> J[Original File]
+```
+
+### Compression Pipeline
+
+1. 📊 **Frequency Analysis** — Count character occurrences in the input file
+2. 🌳 **Tree Construction** — Build Huffman tree using min-heap (priority queue)
+3. 🔢 **Code Generation** — Assign variable-length binary codes (frequent chars get shorter codes)
+4. 💾 **Encoding & Writing** — Replace characters with binary codes, pack into bytes with header
+5. 🔓 **Decoding** — Rebuild tree from header, traverse bit-by-bit to restore original data
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- A C++ compiler that supports C++11 or later (e.g., GCC, Clang, MSVC).
-- `make` (optional, but recommended for easy compilation).
+- C++ compiler with C++11+ support (GCC, Clang, or MSVC)
+- `make` (optional)
 
-### Compilation
+### 🔨 Compilation
 
 You can compile the project using the provided `huffman_coder.cpp` file.
 
@@ -52,7 +82,7 @@ This will create an executable file named `huffman_coder` (or `huffman_coder.exe
 
 ---
 
-## Usage
+## 📖 Usage
 
 The program is run from the command line and will prompt you for the desired operation.
 
@@ -71,11 +101,11 @@ You will be presented with a menu:
 Enter your choice (1 or 2):
 ```
 
-### Example
+### 💡 Example Workflow
 
-Let's say you have a file named `sample.txt`.
+**Scenario:** Compress and decompress `sample.txt`
 
-**1. Compress `sample.txt` to `compressed.bin`:**
+#### Step 1: Compress
 
 ```sh
 $ ./huffman_coder
@@ -90,7 +120,7 @@ Compression successful. Original characters: 1500
 Operation completed.
 ```
 
-**2. Decompress `compressed.bin` to `restored.txt`:**
+#### Step 2: Decompress
 
 ```sh
 $ ./huffman_coder
@@ -105,21 +135,48 @@ Decompression successful. Decoded 1500 characters.
 Operation completed.
 ```
 
-After decompression, you can verify that `restored.txt` is identical to the original `sample.txt` using a diff tool:
+#### Step 3: Verify Integrity
 
 ```sh
-# This command should produce no output if the files are identical
-diff sample.txt restored.txt
+diff sample.txt restored.txt  # No output = perfect restoration ✅
 ```
 
 ---
 
-## Code Structure
+## 🏗️ Code Architecture
 
-- **`TreeNode` struct**: Represents a node in the Huffman tree, storing a character, its frequency, and pointers to its children.
-- **`CompareNodes` struct**: A custom comparator for the priority queue to order `TreeNode` pointers by frequency (creating a min-heap).
-- **`HuffmanCoder` class**: Encapsulates all the logic for compression and decompression.
-  - `compress(inputFile, outputFile)`: The main public method for compression.
-  - `decompress(inputFile, outputFile)`: The main public method for decompression.
-  - Private helper methods for building the frequency map, constructing the tree, generating codes, and cleaning up memory.
-- **`main()` function**: Provides the command-line user interface for interacting with the `HuffmanCoder`.
+```cpp
+📦 Huffman Compressor
+ ├── 🌳 TreeNode              // Huffman tree node (char, frequency, children)
+ ├── ⚖️  CompareNodes          // Min-heap comparator for priority queue
+ ├── 🎯 HuffmanCoder           // Core compression/decompression engine
+ │   ├── compress()           // Public: Compress file
+ │   ├── decompress()         // Public: Decompress file
+ │   └── [Private Helpers]    // Frequency map, tree building, code generation
+ └── 🖥️  main()                // CLI interface
+```
+
+### Key Components
+
+| Component | Purpose |
+|-----------|----------|
+| `TreeNode` | Huffman tree node with character, frequency, and child pointers |
+| `CompareNodes` | Custom comparator for min-heap ordering by frequency |
+| `HuffmanCoder` | Encapsulates compression/decompression logic |
+| Helper Methods | Frequency analysis, tree construction, code generation, memory cleanup |
+
+---
+
+<div align="center">
+
+### 🎓 Learning Outcomes
+
+**Data Structures:** Priority Queues • Binary Trees • Hash Maps  
+**Algorithms:** Greedy Algorithms • Bit Manipulation • Tree Traversal  
+**Concepts:** Lossless Compression • Prefix Codes • File I/O
+
+---
+
+*Part of the [DSA Projects Roadmap](../../README.md) — Phase 2, Project #10*
+
+</div>
