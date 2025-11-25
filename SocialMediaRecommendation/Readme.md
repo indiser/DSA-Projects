@@ -1,70 +1,192 @@
-# C++ Social Network Friend Recommendation Engine
+<div align="center">
 
-This project is a C++ application that models a social network from a dataset and recommends new friends to a user. The core logic is based on finding "friends of friends" and ranking them by the number of mutual connections.
+# 🌐 Social Network Friend Recommendation Engine
 
-This project was built to demonstrate proficiency in graph traversal algorithms and core C++ concepts.
+**Intelligent friend suggestions powered by graph algorithms**
+
+<p>
+  <img src="https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white" alt="C++17">
+  <img src="https://img.shields.io/badge/Algorithm-BFS-orange" alt="BFS">
+  <img src="https://img.shields.io/badge/Data%20Structure-Graph-blueviolet" alt="Graph">
+  <img src="https://img.shields.io/badge/Status-Completed-success" alt="Completed">
+</p>
+
+A C++ application that models social networks and recommends friends using **Breadth-First Search (BFS)** and **mutual connection analysis**. Demonstrates advanced graph traversal algorithms and efficient data structure design.
+
+</div>
 
 ---
 
 ## ✨ Features
 
-* **Graph Representation**: Loads a social network from a text file (edge list) into an efficient in-memory graph structure.
-* **Friend Recommendation**: Implements a Breadth-First Search (BFS) algorithm to find all users at a distance of 2 ("friends of friends").
-* **Ranked Suggestions**: Enhances the recommendation logic by ranking the suggested friends based on the number of mutual friends they share with the user.
-* **Error Handling**: Includes basic checks for missing files and non-existent users.
+<table>
+<tr>
+<td width="50%">
+
+### 🎯 Core Functionality
+- **Graph Representation** — Adjacency list using `unordered_map`
+- **BFS Traversal** — Find friends-of-friends (distance = 2)
+- **Mutual Friends Ranking** — Sort by shared connections
+- **Real Dataset Support** — Facebook combined network data
+
+</td>
+<td width="50%">
+
+### 🛡️ Robustness
+- **File Validation** — Checks for missing/invalid files
+- **User Verification** — Validates user existence in graph
+- **Efficient Lookups** — O(1) average-case friend retrieval
+- **Memory Optimized** — Visited set prevents redundant processing
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🧪 Testing
+
+The project includes test files for validation:
+
+```bash
+# Compile and run tests
+g++ simple_test.cpp Graph.cpp -o simple_test -std=c++17
+./simple_test
+```
+
+---
+
+## 🔍 Algorithm Deep Dive
+
+```
+┌─────────────┐
+│   User 0    │  (Target User)
+└──────┬──────┘
+       │
+   ┌───┴───┐
+   │       │
+   ▼       ▼
+  [1]     [2]     (Direct Friends - Distance 1)
+   │       │
+   ├───┬───┤
+   │   │   │
+   ▼   ▼   ▼
+  [3] [4] [5]     (Friends of Friends - Distance 2) ✅ RECOMMENDED
+```
+
+### Algorithm Pipeline
+
+1. **📊 Load Graph** — Parse edge list from file into adjacency list
+2. **🔎 BFS Traversal** — Explore network up to distance 2 from target user
+3. **🚫 Filter Direct Friends** — Exclude already-connected users
+4. **🤝 Count Mutual Friends** — Calculate shared connections for each candidate
+5. **📈 Rank & Sort** — Order recommendations by mutual friend count (descending)
+
+### Complexity Analysis
+
+| Operation | Time Complexity | Space Complexity |
+|-----------|----------------|------------------|
+| Graph Construction | O(E) | O(V + E) |
+| BFS Traversal | O(V + E) | O(V) |
+| Mutual Friends Calculation | O(V × d²) | O(V) |
+| Sorting Recommendations | O(R log R) | O(R) |
+
+*Where V = vertices (users), E = edges (friendships), d = avg degree, R = recommendations*
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Language**: C++ (C++17)
+**Language:** C++17  
+**Data Structures:** Adjacency List, Hash Map, Hash Set, Queue  
+**Algorithms:** Breadth-First Search (BFS), Sorting  
+**Dataset:** Facebook Combined Network (4,039 nodes, 88,234 edges)
 
 ---
 
-## 🚀 Getting Started
-
-Follow these instructions to compile and run the project on your local machine.
+## 🚀 Quick Start
 
 ### Prerequisites
 
-You must have a C++ compiler installed and configured on your system (e.g., g++, Clang, or the MSVC compiler from Visual Studio).
+```bash
+# Required
+✅ C++17 compatible compiler (g++, Clang, MSVC)
 
-### Compilation
+# Optional
+📦 CMake (for advanced build configuration)
+```
 
-1.  Open your terminal or command prompt in the project's root directory.
-2.  Run the following command to compile all the necessary source files into a single executable named `SocialMediaRecommendation`.
+### 🔨 Build & Run
 
-    ```bash
-    g++ SocialMediaRecommendation.cpp Graph.cpp -o SocialMediaRecommendation -std=c++17
-    ```
-    *Note: If you are using Visual Studio, you can typically add all the `.cpp` files to a project and use the "Build" button.*
+```bash
+# Clone or navigate to project directory
+cd SocialMediaRecommendation
 
----
+# Compile
+g++ SocialMediaRecommendation.cpp Graph.cpp -o SocialMediaRecommendation -std=c++17
 
-## 🏃 How to Run
+# Run
+./SocialMediaRecommendation          # Linux/macOS
+SocialMediaRecommendation.exe        # Windows
+```
 
-After successful compilation, an executable file will be created in your project directory.
+### 💡 Example Usage
 
-1.  Run the program from your terminal:
+```bash
+$ ./SocialMediaRecommendation
+Enter the name of the file: 
+facebook_combined.txt
+Graph loaded successfully!
+Enter The User: 
+0
 
-    ```bash
-    # On Windows
-    .\SocialMediaRecommendation.exe
+Recommendations for User 0:
+107 1684 1912 3437 0 348 ...
+```
 
-    # On macOS / Linux
-    ./SocialMediaRecommendation
-    ```
-
-2.  The program will then prompt you to enter the name of the dataset file. Type `facebook_combined.txt` and press Enter to see the recommendations.
+**Interpretation:** Users are ranked by mutual friends (highest first)
 
 ---
 
 ## 📂 Project Structure
 
 ```
-.
-├── Graph.h                      # Header for the Graph class
-├── Graph.cpp                    # Implementation of the Graph class
-├── SocialMediaRecommendation.cpp    # Main application entry point and RecommendationEngine class
-└── facebook_combined.txt        # The dataset
+SocialMediaRecommendation/
+├── 📄 Graph.h                          # Graph class interface
+├── 📄 Graph.cpp                        # Graph implementation (adjacency list)
+├── 📄 SocialMediaRecommendation.cpp    # RecommendationEngine + main()
+├── 📊 facebook_combined.txt            # Facebook network dataset
+├── 📊 test_combined.txt                # Test dataset
+├── 🧪 simple_test.cpp                  # Unit tests
+└── 📖 Readme.md                        # This file
 ```
+
+### Key Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| **Graph** | Stores adjacency list, provides friend lookup & user validation |
+| **RecommendationEngine** | BFS traversal, mutual friend calculation, ranking logic |
+| **main()** | File I/O, user interaction, orchestrates recommendation flow |
+
+---
+
+## 🎓 Learning Outcomes
+
+<div align="center">
+
+**Graph Algorithms** • **BFS Traversal** • **Adjacency Lists**  
+**Hash Maps** • **Set Operations** • **Ranking Algorithms**  
+**File I/O** • **STL Containers** • **Algorithm Optimization**
+
+### 📊 Dataset Information
+
+**Source:** Stanford SNAP (Social Network Analysis Project)  
+**Network:** Facebook combined ego-networks  
+**Nodes:** 4,039 users | **Edges:** 88,234 friendships
+
+---
+
+*Part of the [DSA Projects Roadmap](../README.md) — Phase 3, Project #11*
+
+</div>
