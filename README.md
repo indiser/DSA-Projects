@@ -101,8 +101,8 @@ The full roadmap consists of 24 projects divided into five phases.
 | :--- | :--- | :--- | :--- |
 | 11 | Social Network Recommender | Adjacency lists, BFS/DFS, shortest paths | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/SocialMediaRecommendation)) |
 | 12 | Travel Route Planner | Dijkstra's algorithm, A* search | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/TravelPlanner)) |
-| 13 | Stock Price Analysis | Sliding window, DP patterns, heaps | 🟢 In Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Stock%20Analysis)) |
-| 14 | Text Analysis Tool (LCS) | Longest Common Subsequence, Edit Distance | 🟡 In Progress |
+| 13 | Stock Price Analysis | Sliding window, DP patterns, heaps | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Stock%20Analysis)) |
+| 14 | Text Analysis Tool (LCS) | Longest Common Subsequence, Edit Distance | 🟡 In Progress ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Text%20Analysis%20Tool)) |
 
 </details>
 
@@ -114,7 +114,7 @@ The full roadmap consists of 24 projects divided into five phases.
 
 | # | Project | Core DSA Concepts | Status |
 | :--- | :--- | :--- | :--- |
-| 15 | Distributed Cache (Mini-Redis) | LRU/LFU cache, consistent hashing | ⚫ Not Started |
+| 15 | Distributed Cache (Mini-Redis) | LRU/LFU cache, consistent hashing | 🟡 In Progress |
 | 16 | Real-Time Chat Application | Priority queues, graph algorithms | ⚫ Not Started |
 | 17 | Search Engine & Web Crawler | Inverted index, PageRank algorithm | ⚫ Not Started |
 | 18 | Version Control (Mini-Git) | Merkle trees, graph traversal, diff algorithms | ⚫ Not Started |
