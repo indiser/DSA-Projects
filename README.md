@@ -102,7 +102,7 @@ The full roadmap consists of 24 projects divided into five phases.
 | 11 | Social Network Recommender | Adjacency lists, BFS/DFS, shortest paths | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/SocialMediaRecommendation)) |
 | 12 | Travel Route Planner | Dijkstra's algorithm, A* search | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/TravelPlanner)) |
 | 13 | Stock Price Analysis | Sliding window, DP patterns, heaps | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Stock%20Analysis)) |
-| 14 | Text Analysis Tool (LCS) | Longest Common Subsequence, Edit Distance | 🟡 In Progress ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Text%20Analysis%20Tool)) |
+| 14 | Text Analysis Tool (LCS) | Longest Common Subsequence, Edit Distance | 🟢 Completed ([View Project](https://github.com/indiser/DSA-Projects/tree/main/Text%20Analysis%20Tool)) |
 
 </details>
 
