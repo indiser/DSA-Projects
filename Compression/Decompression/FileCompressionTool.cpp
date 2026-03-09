@@ -354,7 +354,7 @@ int main()
     cout << "File Compression Tool\n";
     cout << "1. Compress\n2. Decompress\nChoice: ";
     cin >> choice;
-    cin.ignore(); // Clear input buffer
+    cin.ignore();
 
     cout << "Input file: ";
     getline(cin, inputFile);
