@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Valkeyrie: Distributed Cache System
+# ⚡ Mini Redis: Distributed Cache System
 
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)](https://isocpp.org/)
 [![CMake](https://img.shields.io/badge/CMake-3.14+-064F8C?style=for-the-badge&logo=cmake&logoColor=white)](https://cmake.org/)
