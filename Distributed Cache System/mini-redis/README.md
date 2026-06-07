@@ -122,6 +122,11 @@ This project covers essential concepts for FAANG-level system design interviews:
 
 ### High-Level System Design
 
+<div align="center">
+  <img src="redis-101.png" alt="Valkeyrie System Architecture" width="800"/>
+  <p><i>Complete system architecture showing client-server interaction, protocol handling, and cache internals</i></p>
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                        Client Layer                          │
@@ -260,6 +265,10 @@ Synchronization Primitives:
 mini-redis/
 ├── CMakeLists.txt                    # Build configuration
 ├── README.md                         # This file
+├── DOCKER.md                         # Docker deployment guide
+├── Dockerfile                        # Multi-stage Docker build
+├── docker-compose.yml                # Compose configuration
+├── .dockerignore                     # Docker ignore rules
 │
 ├── include/                          # Public headers
 │   ├── cache/
@@ -269,7 +278,40 @@ mini-redis/
 │   │   └── CacheEngine.h            # Main cache coordinator
 │   ├── storage/
 │   │   ├── Storage.h                # Storage interface
-│   │   └── InMemoryStorage.h       # Hash table implementation
+│   │   └── InMemoryStorage.h        # Hash table implementation
+│   ├── network/
+│   │   ├── Server.h                 # TCP server
+│   │   └── Protocol.h               # RESP protocol parser
+│   └── utils/
+│       ├── ThreadPool.h             # Worker thread pool
+│       └── ConsistentHash.h         # Consistent hashing
+│
+├── src/                              # Implementation files
+│   ├── main.cpp                     # Entry point with CLI args
+│   ├── cache/
+│   │   ├── LRUPolicy.cpp
+│   │   ├── LFUPolicy.cpp
+│   │   └── CacheEngine.cpp
+│   ├── storage/
+│   │   └── InMemoryStorage.cpp
+│   ├── network/
+│   │   ├── Server.cpp
+│   │   └── Protocol.cpp
+│   └── utils/
+│       ├── ThreadPool.cpp
+│       └── ConsistentHash.cpp
+│
+├── tests/                            # Unit tests (Google Test)
+│   ├── CMakeLists.txt
+│   ├── test_lru.cpp                 # 15 LRU tests
+│   ├── test_lfu.cpp                 # 12 LFU tests
+│   ├── test_cache_engine.cpp        # 20 integration tests
+│   ├── test_storage.cpp             # 10 storage tests
+│   ├── test_protocol.cpp            # 18 RESP protocol tests
+│   └── test_consistent_hash.cpp     # 8 hashing tests
+│
+├── test_client.cpp                   # Demo test client
+└── valkeyrie-cli.cpp                # Interactive CLI clientage.h       # Hash table implementation
 │   ├── network/
 │   │   ├── Server.h                 # TCP server
 │   │   └── Protocol.h               # RESP protocol parser
@@ -674,41 +716,282 @@ Overall                94%         89
 
 ## 🗺️ Roadmap
 
-### Phase 1: Core Implementation ✅ (Current)
+### Phase 1: Core Implementation ✅ (Completed)
 - [x] Project structure setup
-- [ ] LRU eviction policy
-- [ ] LFU eviction policy
-- [ ] In-memory storage
-- [ ] Basic cache engine
-- [ ] Unit tests
+- [x] LRU eviction policy (doubly-linked list + hashmap)
+- [x] LFU eviction policy (frequency map + list)
+- [x] In-memory storage (hash table)
+- [x] Cache engine with TTL support
+- [x] Comprehensive unit tests (83 tests total)
 
-### Phase 2: Network Layer 🔄
-- [ ] TCP server implementation
-- [ ] RESP protocol parser
-- [ ] Thread pool for concurrency
-- [ ] Client connection handling
-- [ ] Integration tests
+### Phase 2: Network Layer ✅ (Completed)
+- [x] TCP server implementation (cross-platform)
+- [x] RESP protocol parser (full Redis compatibility)
+- [x] Thread pool for concurrency (configurable workers)
+- [x] Client connection handling
+- [x] Command processing (GET, SET, DEL, EXISTS, EXPIRE, INFO, KEYS)
 
-### Phase 3: Distribution 📋
-- [ ] Consistent hashing
-- [ ] Multi-node support
+### Phase 3: Distribution ⚡ (Partially Complete)
+- [x] Consistent hashing with virtual nodes
+- [x] Load balancing algorithm
+- [ ] Multi-node cluster support
 - [ ] Data replication
-- [ ] Fault tolerance
-- [ ] Load balancing
+- [ ] Node failure detection
+- [ ] Automatic failover
 
-### Phase 4: Advanced Features 📋
+### Phase 4: Docker & Deployment ✅ (Completed)
+- [x] Multi-stage Dockerfile
+- [x] Docker Compose configuration
+- [x] Environment variable configuration
+- [x] Health checks
+- [x] Deployment documentation
+- [ ] Kubernetes manifests
+- [ ] Helm charts
+
+### Phase 5: Advanced Features 📋 (Planned)
 - [ ] Persistence (RDB snapshots)
 - [ ] AOF (Append-Only File)
 - [ ] Pub/Sub messaging
 - [ ] Transactions (MULTI/EXEC)
-- [ ] Lua scripting support
+- [ ] Pipelining support
+- [ ] Lua scripting
+- [ ] Sorted sets (ZSET)
+- [ ] Lists and Sets
 
-### Phase 5: Production Ready 📋
-- [ ] Monitoring & metrics
-- [ ] Admin dashboard
-- [ ] Docker containerization
-- [ ] Kubernetes deployment
-- [ ] Performance profiling
+### Phase 6: Production Ready 📋 (Planned)
+- [ ] Prometheus metrics export
+- [ ] Grafana dashboards
+- [ ] Admin REST API
+- [ ] Web UI dashboard
+- [ ] Performance profiling tools
+- [ ] Load testing suite
+- [ ] Security (TLS/SSL, AUTH)
+- [ ] Rate limiting
+
+---
+
+## 🚀 What's New
+
+### Recent Additions
+
+#### ✅ Docker Support (Latest)
+- **Multi-stage Dockerfile**: Optimized build with GCC 13 and Debian slim runtime
+- **Docker Compose**: One-command deployment with configurable settings
+- **Environment Variables**: Runtime configuration for host, port, capacity, policy, threads
+- **Health Checks**: Automatic container health monitoring
+- **Documentation**: Complete Docker deployment guide in `DOCKER.md`
+
+#### ✅ Interactive CLI Client
+- **valkeyrie-cli.cpp**: Full-featured interactive client
+- **Command History**: Easy testing with command-line interface
+- **Pretty Output**: Formatted responses and error messages
+- **Special Commands**: GETALL, KEYS for debugging
+
+#### ✅ Test Client
+- **test_client.cpp**: Automated test suite for server validation
+- **RESP Protocol**: Tests all implemented commands
+- **Connection Handling**: Validates server stability
+
+#### ✅ Comprehensive Testing
+- **83 Total Tests**: Full coverage across all components
+- **Google Test Framework**: Industry-standard testing
+- **Categories**: Unit, integration, concurrency, performance tests
+
+#### ✅ Command-Line Arguments
+- **Configurable Server**: `--host`, `--port`, `--capacity`, `--policy`, `--threads`
+- **Help System**: Built-in `--help` flag
+- **Examples**: Multiple configuration scenarios
+
+### Reference Problems
+
+Included **concurrency patterns** and **cache implementations** for learning:
+
+**Concurrency/**
+- BoundedBlockingQueue.cpp
+- DiningPhilosopher.cpp
+- FizzBuzzMultiThreaded.cpp
+- PrintInOrder.cpp
+- ReaderWriter.cpp
+- SleepingBarber.cpp
+
+**Hashing/**
+- DesignHashMap.cpp
+- DesignHashSet.cpp
+- RandomSet.cpp
+
+**Policies/**
+- LRUcache.cpp (reference implementation)
+- LFUCache.cpp (reference implementation)
+
+**System State/**
+- HitCounter.cpp
+- TicTacToe.cpp
+
+---
+
+## 🎯 Future Improvements
+
+### Priority 1: High Impact (Next 2-4 Weeks)
+
+#### 1. Cluster Support
+- **Multi-node coordination**: Master-slave replication
+- **Gossip protocol**: Node discovery and health checks
+- **Data sharding**: Automatic partitioning using consistent hashing
+- **Read replicas**: Scale read operations
+
+#### 2. Persistence Layer
+- **RDB Snapshots**: Point-in-time backups
+- **AOF (Append-Only File)**: Durability guarantee
+- **Hybrid mode**: RDB + AOF for best of both worlds
+- **Background saving**: Non-blocking persistence
+
+#### 3. Security Features
+- **Authentication**: Password-based AUTH command
+- **TLS/SSL Support**: Encrypted client-server communication
+- **ACL (Access Control Lists)**: Fine-grained permissions
+- **IP Whitelisting**: Network-level security
+
+### Priority 2: Performance (Weeks 5-8)
+
+#### 4. Advanced Data Structures
+- **Sorted Sets (ZSET)**: Range queries, leaderboards
+- **Lists**: LPUSH, RPUSH, LRANGE operations
+- **Sets**: SADD, SMEMBERS, set operations
+- **Hashes**: HSET, HGET for nested data
+- **Bitmaps**: Efficient boolean arrays
+- **HyperLogLog**: Cardinality estimation
+
+#### 5. Performance Optimizations
+- **Memory pooling**: Reduce allocation overhead
+- **Lock-free data structures**: Atomic operations where possible
+- **SIMD operations**: Vectorized hash computation
+- **Zero-copy networking**: Reduce memory copies
+- **Jemalloc integration**: Better memory allocator
+- **CPU affinity**: Pin threads to cores
+
+#### 6. Pipelining & Batching
+- **Request pipelining**: Send multiple commands at once
+- **Batch operations**: MGET, MSET for bulk operations
+- **Async I/O**: Non-blocking network operations
+- **Response buffering**: Reduce syscall overhead
+
+### Priority 3: Observability (Weeks 9-12)
+
+#### 7. Monitoring & Metrics
+- **Prometheus exporter**: Expose metrics endpoint
+- **Grafana dashboards**: Pre-built visualization templates
+- **Key metrics**:
+  - Request rate, latency percentiles (p50, p95, p99)
+  - Hit rate, miss rate, eviction rate
+  - Memory usage, connection count
+  - CPU usage per thread
+  - Slow query log
+
+#### 8. Admin Tools
+- **REST API**: HTTP endpoints for management
+- **Web Dashboard**: React-based UI
+  - Real-time metrics visualization
+  - Cache key browser
+  - Configuration editor
+  - Log viewer
+- **CLI tools**: Admin commands (FLUSHDB, CONFIG SET)
+
+#### 9. Debugging & Profiling
+- **Slow log**: Track long-running operations
+- **Command profiling**: Identify bottlenecks
+- **Memory profiling**: Detect leaks and fragmentation
+- **Distributed tracing**: OpenTelemetry integration
+- **Debug commands**: MONITOR, CLIENT LIST
+
+### Priority 4: Advanced Features (Months 4-6)
+
+#### 10. Pub/Sub System
+- **PUBLISH/SUBSCRIBE**: Message broadcasting
+- **Pattern matching**: PSUBSCRIBE for wildcards
+- **Channels**: Topic-based routing
+- **Message persistence**: Optional durability
+
+#### 11. Transactions & Scripting
+- **MULTI/EXEC**: Atomic command blocks
+- **WATCH/UNWATCH**: Optimistic locking
+- **Lua scripting**: Server-side computation
+- **Script caching**: Precompiled scripts
+
+#### 12. Geospatial Support
+- **GEOADD/GEORADIUS**: Location-based queries
+- **Distance calculations**: Haversine formula
+- **Spatial indexing**: R-tree or quadtree
+
+### Priority 5: Enterprise Features (Months 7-12)
+
+#### 13. High Availability
+- **Sentinel mode**: Automatic failover
+- **Consensus algorithm**: Raft or Paxos
+- **Split-brain protection**: Quorum-based decisions
+- **Rolling upgrades**: Zero-downtime updates
+
+#### 14. Data Migration
+- **Import/Export tools**: Bulk data transfer
+- **Redis compatibility**: Seamless migration from Redis
+- **Live migration**: Online data transfer between clusters
+- **Backup/Restore**: Point-in-time recovery
+
+#### 15. Cloud Native
+- **Kubernetes Operator**: Automated deployment
+- **Horizontal Pod Autoscaling**: Dynamic scaling
+- **StatefulSets**: Persistent storage
+- **Service mesh integration**: Istio/Linkerd support
+- **Cloud provider integrations**: AWS, GCP, Azure
+
+#### 16. Compliance & Audit
+- **Audit logging**: Track all operations
+- **Data encryption at rest**: Disk encryption
+- **GDPR compliance**: Data deletion guarantees
+- **Backup encryption**: Secure backups
+
+### Stretch Goals (Long Term)
+
+#### 17. Machine Learning Integration
+- **Predictive caching**: ML-based eviction policy
+- **Anomaly detection**: Unusual access patterns
+- **Auto-tuning**: Self-optimizing configuration
+
+#### 18. Advanced Networking
+- **HTTP/2 support**: Multiplexed connections
+- **QUIC protocol**: UDP-based transport
+- **gRPC interface**: Modern RPC framework
+- **WebSocket support**: Real-time browser clients
+
+#### 19. Multi-tenancy
+- **Logical databases**: Namespace isolation
+- **Resource quotas**: Per-tenant limits
+- **Billing integration**: Usage tracking
+
+---
+
+## 📊 Current Status Summary
+
+### ✅ Completed (Phase 1-2)
+- Core cache engine with LRU/LFU
+- RESP protocol implementation
+- TCP server with thread pool
+- 83 comprehensive tests
+- Docker containerization
+- CLI tools and test clients
+- Command-line configuration
+- TTL/expiration support
+- Consistent hashing foundation
+
+### 🚧 In Progress (Phase 3)
+- Multi-node cluster coordination
+- Replication and failover
+
+### 📋 Planned (Phase 4-6)
+- Persistence layer (RDB/AOF)
+- Advanced data structures
+- Monitoring and metrics
+- Kubernetes deployment
+- Security features
 
 ---
 
