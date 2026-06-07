@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+*.exe
+*.o
+*.a
+
+# Test files
+test_client.cpp
+valkeyrie-cli.cpp
+valkeyrie-cli.exe
+test_client.exe
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation
+*.md
+redis-101.png
+
+# CMake cache
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake

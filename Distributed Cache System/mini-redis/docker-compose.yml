@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  valkeyrie:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: valkeyrie-cache
+    ports:
+      - "6379:6379"
+    environment:
+      - VALKEYRIE_HOST=0.0.0.0
+      - VALKEYRIE_PORT=6379
+      - VALKEYRIE_CAPACITY=10000
+      - VALKEYRIE_POLICY=LRU
+      - VALKEYRIE_THREADS=4
+    restart: unless-stopped
+    networks:
+      - valkeyrie-network
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "6379"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  valkeyrie-network:
+    driver: bridge
