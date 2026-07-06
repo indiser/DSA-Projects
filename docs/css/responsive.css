@@ -1,0 +1,347 @@
+/* ============================================================
+   responsive.css — Mobile & Tablet Breakpoints
+   Neo-Brutalist Premium SaaS — DSA Project Roadmap
+   ============================================================ */
+
+/* ── ──────────────────────────────────── */
+/* ── LARGE TABLET  (≤ 1024px)            */
+/* ── ──────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .progress-summary-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .progress-summary-card__circle {
+    margin: 0 auto;
+  }
+
+  .hero__blob--1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero__blob--2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ── ──────────────────────────────────── */
+/* ── TABLET  (≤ 768px)                   */
+/* ── ──────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__github {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  /* Hero */
+  #hero {
+    padding-block: calc(var(--navbar-height) + var(--space-12)) var(--space-16);
+  }
+
+  .hero__title {
+    font-size: clamp(2.4rem, 9vw, 3.5rem);
+  }
+
+  .hero__description {
+    font-size: var(--text-lg);
+  }
+
+  .hero__stats {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Geometric shapes — smaller on tablet */
+  .hero__blob--1 {
+    width: 130px;
+    height: 130px;
+    top: 8%;
+    right: 2%;
+  }
+
+  .hero__blob--2 {
+    width: 90px;
+    height: 90px;
+    top: auto;
+    bottom: 15%;
+    right: 5%;
+  }
+
+  .hero__blob--3,
+  .hero__blob--4 {
+    display: none;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Roadmap stats */
+  .roadmap-stats {
+    flex-wrap: wrap;
+  }
+
+  .roadmap-stat {
+    min-width: 120px;
+  }
+
+  /* Phase timeline */
+  .timeline::before {
+    display: none;
+  }
+
+  .phase {
+    padding-left: 0;
+    padding-bottom: var(--space-5);
+  }
+
+  .phase__dot {
+    display: none;
+  }
+
+  /* Phase header */
+  .phase__header {
+    flex-wrap: wrap;
+  }
+
+  .phase__header-right {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .phase__progress-pill {
+    display: none;
+  }
+
+  .phase__name {
+    font-size: var(--text-base);
+    flex-wrap: wrap;
+  }
+
+  /* Projects grid */
+  .phase-projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Skills */
+  .skills-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tech grid */
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Principles */
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline section */
+  #timeline .container > div {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .footer__copy {
+    text-align: left;
+  }
+
+  .footer__tech {
+    justify-content: flex-start;
+  }
+
+  /* Reduce shadow size on mobile to avoid overflow */
+  .stat-card,
+  .principle-card,
+  .tech-card,
+  .project-card,
+  .phase__header {
+    box-shadow: var(--shadow-brutal-sm);
+  }
+
+  .stat-card:hover,
+  .principle-card:hover,
+  .tech-card:hover,
+  .project-card:hover,
+  .phase__header:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Section padding */
+  .section {
+    padding-block: var(--space-16);
+  }
+
+  /* Roadmap stats dividers */
+  .roadmap-stat__divider {
+    display: none;
+  }
+}
+
+/* ── ──────────────────────────────────── */
+/* ── MOBILE  (≤ 480px)                   */
+/* ── ──────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  /* Hero stats inline box */
+  .hero__stats {
+    flex-direction: column;
+    gap: var(--space-3);
+    width: 100%;
+  }
+
+  .hero__stat-divider {
+    display: none;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Filters scroll horizontal on mobile */
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Phase name */
+  .phase__sub {
+    display: none;
+  }
+
+  /* Back to top */
+  #back-to-top {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Section header */
+  .section__title {
+    font-size: var(--text-3xl);
+  }
+
+  /* Progress summary card */
+  .progress-summary-card {
+    padding: var(--space-5);
+  }
+
+  /* Search */
+  #search-input {
+    font-size: var(--text-sm);
+  }
+
+  /* Nav mobile */
+  .navbar__mobile-link {
+    padding: var(--space-3);
+    font-size: var(--text-sm);
+  }
+}
+
+/* ── ──────────────────────────────────── */
+/* ── SMALL MOBILE  (≤ 375px)             */
+/* ── ──────────────────────────────────── */
+
+@media (max-width: 375px) {
+  .hero__title {
+    font-size: 1.9rem;
+  }
+
+  .btn--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-sm);
+  }
+
+  .phase__number {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+  }
+}
+
+/* ── ──────────────────────────────────── */
+/* ── DARK MODE ADJUSTMENTS               */
+/* ── ──────────────────────────────────── */
+
+[data-theme="dark"] .hero__blob--1 {
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .hero__blob--2 {
+  opacity: 0.25;
+}
+
+[data-theme="dark"] .hero__blob--3 {
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  box-shadow: 0 4px 0 rgba(255,255,255,0.8);
+}
+
+[data-theme="dark"] code {
+  background: var(--bg-accent-blue);
+}

@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- ═══════════════════════════════════════════
+       META & SEO
+  ═══════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>DSA Project Roadmap</title>
+  <meta name="description" content="A structured, project-based journey through 24 production-grade Data Structures, Algorithms, and System Design projects in C++17. From foundational concepts to FAANG-ready distributed systems." />
+  <meta name="keywords" content="DSA, Data Structures, Algorithms, C++17, FAANG, System Design, Portfolio, Projects, CMake, Google Test" />
+  <meta name="author" content="Rana B" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://indiser.github.io/DSA-Projects/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DSA Project Roadmap — Foundation to FAANG-Ready" />
+  <meta property="og:description" content="24 production-grade C++ projects covering Data Structures, Algorithms, and System Design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://indiser.github.io/DSA-Projects/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DSA Project Roadmap — Foundation to FAANG-Ready" />
+  <meta name="twitter:description" content="24 production-grade C++ projects covering Data Structures, Algorithms, and System Design." />
+
+  <!-- ═══════════════════════════════════════════
+       FONTS
+  ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ═══════════════════════════════════════════
+       CSS — loaded in dependency order
+  ═══════════════════════════════════════════ -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/roadmap.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Prevent theme flicker: Neo-Brutalist is light-mode-first -->
+  <script>
+    (function() {
+      var stored = localStorage.getItem('dsa-theme');
+      if (stored === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      // Default (no stored or 'light') = no attribute = light mode
+    })();
+  </script>
+
+  <!-- Favicon: red square in Neo-Brutalist style -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23E3261C'/><rect x='4' y='4' width='24' height='24' rx='2' fill='none' stroke='%23000' stroke-width='2'/><text y='23' x='7' font-size='16' font-family='monospace' font-weight='900' fill='white'>D</text></svg>" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SKIP TO MAIN (Accessibility)
+  ═══════════════════════════════════════════ -->
+  <a href="#main" class="sr-only" style="position:fixed;top:8px;left:8px;z-index:9999;background:var(--accent-blue);color:#fff;padding:8px 16px;border-radius:6px;">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <header role="banner">
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <div class="container">
+        <div class="navbar__inner">
+
+          <!-- Logo -->
+          <a href="#hero" class="navbar__logo" aria-label="DSA Roadmap Home">
+            <div class="navbar__logo-icon" aria-hidden="true">D</div>
+            <span>DSA Roadmap</span>
+          </a>
+
+          <!-- Desktop Nav -->
+          <ul class="navbar__nav" role="list">
+            <li><a href="#hero"     class="navbar__nav-link active" aria-current="page">Home</a></li>
+            <li><a href="#roadmap"  class="navbar__nav-link">Projects</a></li>
+            <li><a href="#skills"   class="navbar__nav-link">Skills</a></li>
+            <li><a href="#timeline" class="navbar__nav-link">Timeline</a></li>
+            <li><a href="#tech"     class="navbar__nav-link">Tech</a></li>
+          </ul>
+
+          <!-- Actions -->
+          <div class="navbar__actions">
+            <a
+              href="https://github.com/indiser/DSA-Projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="navbar__github"
+              id="nav-github-btn"
+              aria-label="View on GitHub"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <button
+              id="theme-toggle"
+              class="navbar__theme-toggle"
+              aria-label="Toggle theme"
+              title="Toggle dark/light mode"
+            >🌙</button>
+            <!-- Hamburger (mobile) -->
+            <button
+              id="hamburger"
+              class="navbar__hamburger"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+        </div><!-- /.navbar__inner -->
+      </div><!-- /.container -->
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <a href="#hero"     class="navbar__mobile-link active">🏠 Home</a>
+      <a href="#roadmap"  class="navbar__mobile-link">📁 Projects</a>
+      <a href="#skills"   class="navbar__mobile-link">📊 Skills</a>
+      <a href="#timeline" class="navbar__mobile-link">🗓️ Timeline</a>
+      <a href="#tech"     class="navbar__mobile-link">🛠️ Tech Stack</a>
+      <a href="https://github.com/indiser/DSA-Projects" target="_blank" rel="noopener" class="navbar__mobile-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub Repository
+      </a>
+      <div style="padding-top:var(--space-2);border-top:1px solid var(--border-primary);display:flex;align-items:center;gap:var(--space-3);">
+        <span style="font-size:var(--text-sm);color:var(--text-muted);">Theme</span>
+        <button id="theme-toggle-mobile" class="btn btn--ghost btn--sm" aria-label="Toggle theme">☀️</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════ -->
+  <main id="main">
+
+    <!-- ─────────────────────────────────────────
+         HERO
+    ───────────────────────────────────────── -->
+    <section id="hero" aria-label="Introduction" role="region">
+      <div class="hero__bg">
+        <canvas id="particle-canvas" class="hero__canvas" aria-hidden="true"></canvas>
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--4" aria-hidden="true"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero__content">
+
+          <!-- Status badge -->
+          <div class="hero__badge">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            <span style="font-family:var(--font-mono)">ACTIVE</span> — Phase 4 of 5
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero__title">
+            Building systems.<br />
+            <span class="gradient-text">One project</span> at a time.
+          </h1>
+
+          <!-- Description -->
+          <p class="hero__description">
+            A structured, project-based journey through <strong>24 production-grade</strong> Data Structures,
+            Algorithms, and System Design projects in modern C++17 — built to demonstrate
+            interview-ready engineering skills.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero__cta">
+            <a href="#roadmap" class="btn btn--primary btn--lg" id="hero-view-projects">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M3 12h18M12 5l7 7-7 7"/>
+              </svg>
+              View Projects
+            </a>
+            <a
+              href="https://github.com/indiser/DSA-Projects"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--secondary btn--lg"
+              id="hero-github-btn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              GitHub Repository
+            </a>
+          </div>
+
+          <!-- Stats row -->
+          <div class="hero__stats" role="list">
+            <div class="hero__stat" role="listitem">
+              <span class="hero__stat-value" data-count="24" data-suffix="">24</span>
+              <span class="hero__stat-label">Projects</span>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat" role="listitem">
+              <span class="hero__stat-value" data-count="400" data-suffix="+">400+</span>
+              <span class="hero__stat-label">Hours</span>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat" role="listitem">
+              <span class="hero__stat-value" data-count="15000" data-suffix="+">15K+</span>
+              <span class="hero__stat-label">Lines of Code</span>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat" role="listitem">
+              <span class="hero__stat-value" data-count="200" data-suffix="+">200+</span>
+              <span class="hero__stat-label">Tests Written</span>
+            </div>
+          </div>
+
+        </div><!-- /.hero__content -->
+      </div><!-- /.container -->
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         OVERVIEW STATS CARDS
+    ───────────────────────────────────────── -->
+    <section id="stats" class="section section--alt" aria-label="Project Statistics">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__eyebrow" aria-hidden="true">By the numbers</div>
+          <h2 class="section__title">Built for <span class="gradient-text">Real Impact</span></h2>
+          <p class="section__desc">Every metric reflects genuine engineering effort — not toy examples.</p>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card reveal reveal--delay-1">
+            <span class="stat-card__icon" aria-hidden="true">📦</span>
+            <div class="stat-card__value" data-count="24" data-suffix="" aria-label="24 Projects">24</div>
+            <div class="stat-card__label">Production Projects</div>
+          </article>
+          <article class="stat-card reveal reveal--delay-2">
+            <span class="stat-card__icon" aria-hidden="true">⏱️</span>
+            <div class="stat-card__value" data-count="400" data-suffix="+" aria-label="400+ Hours">400+</div>
+            <div class="stat-card__label">Hours Invested</div>
+          </article>
+          <article class="stat-card reveal reveal--delay-3">
+            <span class="stat-card__icon" aria-hidden="true">📝</span>
+            <div class="stat-card__value" data-count="15000" data-suffix="+" aria-label="15000+ Lines">15K+</div>
+            <div class="stat-card__label">Lines of C++ Code</div>
+          </article>
+          <article class="stat-card reveal reveal--delay-4">
+            <span class="stat-card__icon" aria-hidden="true">✅</span>
+            <div class="stat-card__value" data-count="200" data-suffix="+" aria-label="200+ Tests">200+</div>
+            <div class="stat-card__label">Unit Tests</div>
+          </article>
+        </div>
+
+        <!-- Technology pills -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-8);" class="reveal">
+          <span class="badge badge--blue">C++17</span>
+          <span class="badge badge--blue">CMake 3.14+</span>
+          <span class="badge badge--purple">Google Test</span>
+          <span class="badge badge--purple">STL</span>
+          <span class="badge badge--neutral">RAII</span>
+          <span class="badge badge--neutral">Smart Pointers</span>
+          <span class="badge badge--success">14 / 24 Complete</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         GUIDING PRINCIPLES
+    ───────────────────────────────────────── -->
+    <section id="principles" class="section" aria-label="Guiding Principles">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__eyebrow">Philosophy</div>
+          <h2 class="section__title">Engineering <span class="gradient-text">Principles</span></h2>
+          <p class="section__desc">Three core principles drive every project in this roadmap.</p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle-card reveal reveal--delay-1">
+            <div class="principle-card__icon" aria-hidden="true">📈</div>
+            <h3 class="principle-card__title">Progressive Difficulty</h3>
+            <p class="principle-card__desc">
+              Projects are carefully sequenced — each one builds on the last. Start with arrays
+              and stacks, graduate to distributed systems.
+            </p>
+          </article>
+          <article class="principle-card reveal reveal--delay-2">
+            <div class="principle-card__icon" aria-hidden="true">🎯</div>
+            <h3 class="principle-card__title">Practical Application</h3>
+            <p class="principle-card__desc">
+              Every project solves a real-world problem: social network analysis, route optimization,
+              distributed caching — theory meets production.
+            </p>
+          </article>
+          <article class="principle-card reveal reveal--delay-3">
+            <div class="principle-card__icon" aria-hidden="true">💼</div>
+            <h3 class="principle-card__title">Interview-Focused</h3>
+            <p class="principle-card__desc">
+              Patterns and concepts directly aligned with FAANG technical rounds — every project
+              reinforces skills assessed in coding and system design interviews.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         PROJECT ROADMAP
+    ───────────────────────────────────────── -->
+    <section id="roadmap" class="section section--alt-subtle" aria-label="Project Roadmap">
+      <div class="container">
+
+        <div class="section__header reveal">
+          <div class="section__eyebrow">Projects</div>
+          <h2 class="section__title">The <span class="gradient-text">Roadmap</span></h2>
+          <p class="section__desc">
+            24 projects across 5 phases — from basic data structures to distributed systems.
+            <span id="visible-count" style="color:var(--primary);font-weight:700;font-family:var(--font-mono)">24</span> projects shown.
+          </p>
+        </div>
+
+        <!-- Progress summary row -->
+        <div class="roadmap-stats reveal reveal--delay-1">
+          <div class="roadmap-stat">
+            <div class="roadmap-stat__value" style="color:var(--success)">14</div>
+            <div class="roadmap-stat__label">Completed</div>
+          </div>
+          <div class="roadmap-stat__divider" aria-hidden="true"></div>
+          <div class="roadmap-stat">
+            <div class="roadmap-stat__value" style="color:var(--warning)">1</div>
+            <div class="roadmap-stat__label">In Progress</div>
+          </div>
+          <div class="roadmap-stat__divider" aria-hidden="true"></div>
+          <div class="roadmap-stat">
+            <div class="roadmap-stat__value">9</div>
+            <div class="roadmap-stat__label">Not Started</div>
+          </div>
+          <div class="roadmap-stat__divider" aria-hidden="true"></div>
+          <div class="roadmap-stat">
+            <div class="roadmap-stat__value" style="color:var(--primary)">58%</div>
+            <div class="roadmap-stat__label">Overall Progress</div>
+          </div>
+          <div class="roadmap-stat__divider" aria-hidden="true"></div>
+          <div class="roadmap-stat">
+            <div class="roadmap-stat__value">5</div>
+            <div class="roadmap-stat__label">Phases</div>
+          </div>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="reveal">
+          <div class="search-wrapper">
+            <svg class="search-wrapper__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search projects… (Ctrl+K)"
+              aria-label="Search projects"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="search-clear" aria-label="Clear search">✕</button>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="filter-btn active" data-filter="all" id="filter-all">
+              All <span class="filter-count">24</span>
+            </button>
+            <button class="filter-btn" data-filter="completed" id="filter-completed">
+              ✅ Completed <span class="filter-count">14</span>
+            </button>
+            <button class="filter-btn" data-filter="in-progress" id="filter-in-progress">
+              🔄 In Progress <span class="filter-count">1</span>
+            </button>
+            <button class="filter-btn" data-filter="not-started" id="filter-not-started">
+              ⚫ Not Started <span class="filter-count">9</span>
+            </button>
+            <button class="filter-btn" data-filter="⭐" id="filter-easy">⭐ Easy</button>
+            <button class="filter-btn" data-filter="⭐⭐" id="filter-medium">⭐⭐ Medium</button>
+            <button class="filter-btn" data-filter="⭐⭐⭐" id="filter-hard">⭐⭐⭐ Hard</button>
+            <button class="filter-btn" data-filter="⭐⭐⭐⭐" id="filter-expert">⭐⭐⭐⭐ Expert</button>
+            <button class="filter-btn" data-filter="⭐⭐⭐⭐⭐" id="filter-legendary">⭐⭐⭐⭐⭐ FAANG</button>
+          </div>
+        </div>
+
+        <!-- No results state -->
+        <div id="no-results" class="no-results" role="status">
+          <div class="no-results__icon">🔍</div>
+          <h3 style="color:var(--text-secondary);font-size:var(--text-xl);margin-bottom:var(--space-2);">No projects found</h3>
+          <p style="color:var(--text-muted);">Try adjusting your search or filters.</p>
+        </div>
+
+        <!-- ── TIMELINE ── -->
+        <div class="timeline" role="list">
+
+          <!-- ═══════════════════════════════
+               PHASE 1 — FOUNDATION
+          ═══════════════════════════════ -->
+          <article class="phase phase--completed phase--open reveal" role="listitem" data-phase="1">
+            <div class="phase__dot" aria-hidden="true"><div class="phase__dot-inner"></div></div>
+
+            <div class="phase__header" aria-expanded="true" aria-controls="phase-1-body" id="phase-1-header">
+              <div class="phase__header-left">
+                <div class="phase__number">P1</div>
+                <div class="phase__meta">
+                  <div class="phase__name">
+                    Foundation Building
+                    <span class="badge badge--success">100% ✓</span>
+                  </div>
+                  <div class="phase__sub">Months 1–2 · Basic Linear Data Structures</div>
+                </div>
+              </div>
+              <div class="phase__header-right">
+                <div class="phase__progress-pill">
+                  <span class="phase__progress-text">6 / 6</span>
+                  <div class="phase__progress-mini">
+                    <div class="phase__progress-mini-bar" data-width="100" style="width:100%"></div>
+                  </div>
+                </div>
+                <span class="phase__toggle-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+
+            <div class="phase__body" id="phase-1-body" role="region" aria-labelledby="phase-1-header">
+              <div class="phase__body-inner">
+                <div class="phase__focus">
+                  <span class="phase__focus-label">Focus:</span>
+                  Programming fundamentals, arrays, linked lists, stacks, queues, hash tables, and binary trees.
+                </div>
+                <div class="phase-projects-grid">
+
+                  <!-- Project 1 -->
+                  <article class="project-card"
+                    data-title="Number Guessing Game"
+                    data-status="completed"
+                    data-difficulty="⭐"
+                    data-phase="1"
+                    data-concepts="linear search basic sorting arrays"
+                    data-tech="c++17 stl"
+                    data-desc="Interactive number guessing with score tracking and search visualization"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#01</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐ Easy</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Number Guessing Game</h3>
+                      <p class="project-card__desc">Interactive guessing game with score tracking, hint system, and linear search visualization for understanding basic search patterns.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Linear Search</span>
+                        <span class="tag">Basic Sorting</span>
+                        <span class="tag">Arrays</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech">
+                        <span class="tag">C++17</span>
+                        <span class="tag">STL</span>
+                      </div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Number%20Guessing" target="_blank" rel="noopener" class="project-card__link" aria-label="View Number Guessing Game on GitHub">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        View
+                      </a>
+                    </div>
+                  </article>
+
+                  <!-- Project 2 -->
+                  <article class="project-card"
+                    data-title="Calculator with History"
+                    data-status="completed"
+                    data-difficulty="⭐"
+                    data-phase="1"
+                    data-concepts="stack operations arithmetic algorithms expression parsing"
+                    data-tech="c++17 stl"
+                    data-desc="Calculator with full expression history using stack-based evaluation"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#02</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐ Easy</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Calculator with History</h3>
+                      <p class="project-card__desc">Stack-based expression evaluator with full calculation history, undo functionality, and arithmetic algorithm demonstrations.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Stack</span>
+                        <span class="tag">Expression Parsing</span>
+                        <span class="tag">Arithmetic Algs</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech">
+                        <span class="tag">C++17</span>
+                        <span class="tag">STL</span>
+                      </div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Calculator" target="_blank" rel="noopener" class="project-card__link" aria-label="View Calculator on GitHub">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        View
+                      </a>
+                    </div>
+                  </article>
+
+                  <!-- Project 3 -->
+                  <article class="project-card"
+                    data-title="To-Do List Application"
+                    data-status="completed"
+                    data-difficulty="⭐"
+                    data-phase="1"
+                    data-concepts="CRUD operations linked list manipulation"
+                    data-tech="c++17 stl"
+                    data-desc="Full-featured task manager with priorities, filtering and list manipulation"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#03</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐ Easy</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">To-Do List Application</h3>
+                      <p class="project-card__desc">Full-featured task manager with priority queues, filtering, sorting, and persistent data — demonstrating CRUD operations on linked list structures.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">CRUD</span>
+                        <span class="tag">Linked List</span>
+                        <span class="tag">List Manipulation</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">STL</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/ToDo%20List" target="_blank" rel="noopener" class="project-card__link" aria-label="View ToDo List on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 4 -->
+                  <article class="project-card"
+                    data-title="Student Grade Management"
+                    data-status="completed"
+                    data-difficulty="⭐⭐"
+                    data-phase="1"
+                    data-concepts="bubble sort selection sort linear search sorting algorithms"
+                    data-tech="c++17 stl"
+                    data-desc="Grade management system with multiple sorting algorithms and analytics"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#04</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐⭐ Medium</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Student Grade Management</h3>
+                      <p class="project-card__desc">Grade management system implementing bubble sort, selection sort, and linear search for real-time student analytics and ranking.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Bubble Sort</span>
+                        <span class="tag">Selection Sort</span>
+                        <span class="tag">Linear Search</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">STL</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Student%20Grade%20Management" target="_blank" rel="noopener" class="project-card__link" aria-label="View Student Grade Management on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 5 -->
+                  <article class="project-card"
+                    data-title="Library Management System"
+                    data-status="completed"
+                    data-difficulty="⭐⭐"
+                    data-phase="1"
+                    data-concepts="hash tables collision handling open addressing chaining"
+                    data-tech="c++17 stl cmake"
+                    data-desc="Book catalog system demonstrating hash table internals and collision resolution"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#05</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐⭐ Medium</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Library Management System</h3>
+                      <p class="project-card__desc">Book catalog and borrowing system built on custom hash tables with open addressing and chaining collision resolution strategies.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Hash Tables</span>
+                        <span class="tag">Collision Handling</span>
+                        <span class="tag">Open Addressing</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/LibraryManagementSystem" target="_blank" rel="noopener" class="project-card__link" aria-label="View Library Management System on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 6 -->
+                  <article class="project-card"
+                    data-title="Binary Search Tree Implementation"
+                    data-status="completed"
+                    data-difficulty="⭐⭐"
+                    data-phase="1"
+                    data-concepts="BST operations DFS traversals insertion deletion search"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Full BST with all traversals, balancing insights and comprehensive unit tests"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#06</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐⭐ Medium</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Binary Search Tree</h3>
+                      <p class="project-card__desc">Complete BST implementation with in-order, pre-order, post-order traversals, deletion, and comprehensive test suite using Google Test.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">BST</span>
+                        <span class="tag">DFS Traversals</span>
+                        <span class="tag">Tree Operations</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/BinarySearchTreeImplementation" target="_blank" rel="noopener" class="project-card__link" aria-label="View Binary Search Tree on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                </div><!-- /.phase-projects-grid -->
+
+                <div class="phase__completion">
+                  <p class="phase__key-learnings">
+                    <strong>Key Learnings:</strong> Arrays, Linked Lists, Stacks, Queues, Hash Tables, Trees, Basic Sorting &amp; Searching
+                  </p>
+                </div>
+              </div>
+            </div><!-- /.phase__body -->
+          </article>
+
+          <!-- ═══════════════════════════════
+               PHASE 2 — INTERMEDIATE
+          ═══════════════════════════════ -->
+          <article class="phase phase--completed reveal" role="listitem" data-phase="2">
+            <div class="phase__dot" aria-hidden="true"><div class="phase__dot-inner"></div></div>
+
+            <div class="phase__header" aria-expanded="false" aria-controls="phase-2-body" id="phase-2-header">
+              <div class="phase__header-left">
+                <div class="phase__number">P2</div>
+                <div class="phase__meta">
+                  <div class="phase__name">
+                    Intermediate Skills
+                    <span class="badge badge--success">100% ✓</span>
+                  </div>
+                  <div class="phase__sub">Months 2–4 · Advanced Sorting & Graph Traversals</div>
+                </div>
+              </div>
+              <div class="phase__header-right">
+                <div class="phase__progress-pill">
+                  <span class="phase__progress-text">4 / 4</span>
+                  <div class="phase__progress-mini">
+                    <div class="phase__progress-mini-bar" data-width="100" style="width:100%"></div>
+                  </div>
+                </div>
+                <span class="phase__toggle-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+
+            <div class="phase__body" id="phase-2-body" role="region" aria-labelledby="phase-2-header">
+              <div class="phase__body-inner">
+                <div class="phase__focus">
+                  <span class="phase__focus-label">Focus:</span>
+                  Advanced O(n log n) sorting algorithms, BFS/DFS graph traversal, Tries, Priority Queues, and Greedy algorithms.
+                </div>
+                <div class="phase-projects-grid">
+
+                  <!-- Project 7 -->
+                  <article class="project-card"
+                    data-title="Sorting Algorithm Visualizer"
+                    data-status="completed"
+                    data-difficulty="⭐⭐"
+                    data-phase="2"
+                    data-concepts="merge sort quick sort heap sort sorting visualizer"
+                    data-tech="c++17 cmake"
+                    data-desc="Visual comparison engine for merge sort, quick sort, heap sort with performance metrics"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#07</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--blue">⭐⭐ Medium</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Sorting Algorithm Visualizer</h3>
+                      <p class="project-card__desc">Visual comparison engine for merge sort, quick sort, and heap sort with step-by-step execution tracing and performance benchmarking.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Merge Sort</span>
+                        <span class="tag">Quick Sort</span>
+                        <span class="tag">Heap Sort</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Visualizer" target="_blank" rel="noopener" class="project-card__link" aria-label="View Sorting Visualizer on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 8 -->
+                  <article class="project-card"
+                    data-title="Maze Solver"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐"
+                    data-phase="2"
+                    data-concepts="BFS DFS pathfinding algorithms graph traversal"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Multi-algorithm maze solver using BFS, DFS, and A* with visual path output"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#08</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐ Hard</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Maze Solver</h3>
+                      <p class="project-card__desc">Multi-algorithm pathfinding engine using BFS, DFS, and A* search with visual maze rendering, path tracing, and algorithm comparison metrics.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">BFS</span>
+                        <span class="tag">DFS</span>
+                        <span class="tag">Pathfinding</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Maze%20Solver" target="_blank" rel="noopener" class="project-card__link" aria-label="View Maze Solver on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 9 -->
+                  <article class="project-card"
+                    data-title="Spell Checker with Trie"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐"
+                    data-phase="2"
+                    data-concepts="Trie construction prefix matching autocomplete suggestion"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Real-time spell checker and autocomplete engine built on a Trie data structure"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#09</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐ Hard</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Spell Checker with Trie</h3>
+                      <p class="project-card__desc">Real-time spell checker and word suggestion engine built on a custom Trie structure with prefix matching, edit-distance suggestions, and dictionary loading.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Trie</span>
+                        <span class="tag">Prefix Matching</span>
+                        <span class="tag">Autocomplete</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Spell%20Checker" target="_blank" rel="noopener" class="project-card__link" aria-label="View Spell Checker on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 10 -->
+                  <article class="project-card"
+                    data-title="File Compression Huffman"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐"
+                    data-phase="2"
+                    data-concepts="priority queues Huffman encoding greedy algorithms binary tree"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Huffman compression and decompression with bit-level encoding and real file I/O"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#10</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐ Hard</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">File Compression (Huffman)</h3>
+                      <p class="project-card__desc">Lossless file compressor and decompressor using Huffman coding, priority queues, and bit-level encoding with measurable compression ratios.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Priority Queue</span>
+                        <span class="tag">Huffman Coding</span>
+                        <span class="tag">Greedy Alg</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Compression/Decompression" target="_blank" rel="noopener" class="project-card__link" aria-label="View File Compression on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                </div>
+
+                <div class="phase__completion">
+                  <p class="phase__key-learnings">
+                    <strong>Key Learnings:</strong> Advanced Sorting O(n log n), Graph Traversals, Tries, Priority Queues, Greedy Algorithms
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════
+               PHASE 3 — ADVANCED
+          ═══════════════════════════════ -->
+          <article class="phase phase--completed reveal" role="listitem" data-phase="3">
+            <div class="phase__dot" aria-hidden="true"><div class="phase__dot-inner"></div></div>
+
+            <div class="phase__header" aria-expanded="false" aria-controls="phase-3-body" id="phase-3-header">
+              <div class="phase__header-left">
+                <div class="phase__number">P3</div>
+                <div class="phase__meta">
+                  <div class="phase__name">
+                    Advanced Intermediate
+                    <span class="badge badge--success">100% ✓</span>
+                  </div>
+                  <div class="phase__sub">Months 4–6 · Graph Algorithms & Dynamic Programming</div>
+                </div>
+              </div>
+              <div class="phase__header-right">
+                <div class="phase__progress-pill">
+                  <span class="phase__progress-text">4 / 4</span>
+                  <div class="phase__progress-mini">
+                    <div class="phase__progress-mini-bar" data-width="100" style="width:100%"></div>
+                  </div>
+                </div>
+                <span class="phase__toggle-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+
+            <div class="phase__body" id="phase-3-body" role="region" aria-labelledby="phase-3-header">
+              <div class="phase__body-inner">
+                <div class="phase__focus">
+                  <span class="phase__focus-label">Focus:</span>
+                  Dijkstra's, A* search, Dynamic Programming patterns, Sliding Window, and advanced graph algorithms.
+                </div>
+                <div class="phase-projects-grid">
+
+                  <!-- Project 11 -->
+                  <article class="project-card"
+                    data-title="Social Network Recommender"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐"
+                    data-phase="3"
+                    data-concepts="graph algorithms shortest paths BFS friend recommendations"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Graph-based social network with friend recommendations and influence analysis"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#11</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐ Hard</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Social Network Recommender</h3>
+                      <p class="project-card__desc">Graph-based social network with BFS/DFS friend recommendations, influence scoring, community detection, and shortest connection path finding.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Graph Algorithms</span>
+                        <span class="tag">Shortest Paths</span>
+                        <span class="tag">BFS / DFS</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/SocialMediaRecommendation" target="_blank" rel="noopener" class="project-card__link" aria-label="View Social Network Recommender on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 12 -->
+                  <article class="project-card"
+                    data-title="Travel Route Planner"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐⭐"
+                    data-phase="3"
+                    data-concepts="Dijkstra A* search weighted graphs route optimization"
+                    data-tech="c++17 cmake google test"
+                    data-desc="GPS-style route planner using Dijkstra's and A* with multi-criteria optimization"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#12</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐ Expert</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Travel Route Planner</h3>
+                      <p class="project-card__desc">GPS-style route optimization using Dijkstra's algorithm and A* search on weighted graphs, with multi-criteria path selection (shortest, fastest, scenic).</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Dijkstra's</span>
+                        <span class="tag">A* Search</span>
+                        <span class="tag">Weighted Graphs</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/TravelPlanner" target="_blank" rel="noopener" class="project-card__link" aria-label="View Travel Route Planner on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 13 -->
+                  <article class="project-card"
+                    data-title="Stock Price Analysis"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐⭐"
+                    data-phase="3"
+                    data-concepts="sliding window dynamic programming heaps stock analysis"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Algorithmic stock analysis with sliding window patterns, heaps, and DP optimization"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#13</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐ Expert</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Stock Price Analysis</h3>
+                      <p class="project-card__desc">Algorithmic stock analyzer using sliding window patterns, monotonic heaps, and DP for profit optimization — directly maps to LeetCode hard problems.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Sliding Window</span>
+                        <span class="tag">Dynamic Programming</span>
+                        <span class="tag">Heaps</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Stock%20Analysis" target="_blank" rel="noopener" class="project-card__link" aria-label="View Stock Price Analysis on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 14 -->
+                  <article class="project-card"
+                    data-title="Text Analysis Tool LCS"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐⭐"
+                    data-phase="3"
+                    data-concepts="longest common subsequence edit distance dynamic programming string algorithms"
+                    data-tech="c++17 cmake google test"
+                    data-desc="String similarity engine with LCS, edit distance, and diff visualization"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#14</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐ Expert</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Text Analysis Tool (LCS)</h3>
+                      <p class="project-card__desc">String similarity and diff engine using Longest Common Subsequence and Edit Distance algorithms with visual diff output and complexity analysis.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">LCS</span>
+                        <span class="tag">Edit Distance</span>
+                        <span class="tag">Dynamic Programming</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Text%20Analysis%20Tool" target="_blank" rel="noopener" class="project-card__link" aria-label="View Text Analysis Tool on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                </div>
+
+                <div class="phase__completion">
+                  <p class="phase__key-learnings">
+                    <strong>Key Learnings:</strong> Dijkstra's, A*, Dynamic Programming, Sliding Window, Advanced Graph Algorithms
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════
+               PHASE 4 — SYSTEM DESIGN
+          ═══════════════════════════════ -->
+          <article class="phase phase--in-progress reveal" role="listitem" data-phase="4">
+            <div class="phase__dot" aria-hidden="true"><div class="phase__dot-inner"></div></div>
+
+            <div class="phase__header" aria-expanded="false" aria-controls="phase-4-body" id="phase-4-header">
+              <div class="phase__header-left">
+                <div class="phase__number">P4</div>
+                <div class="phase__meta">
+                  <div class="phase__name">
+                    FAANG Interview Prep
+                    <span class="badge badge--warning">17% 🔄</span>
+                  </div>
+                  <div class="phase__sub">Months 6–9 · System Design Fundamentals</div>
+                </div>
+              </div>
+              <div class="phase__header-right">
+                <div class="phase__progress-pill">
+                  <span class="phase__progress-text">1 / 6</span>
+                  <div class="phase__progress-mini">
+                    <div class="phase__progress-mini-bar" data-width="17" style="width:17%;background:var(--warning)"></div>
+                  </div>
+                </div>
+                <span class="phase__toggle-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+
+            <div class="phase__body" id="phase-4-body" role="region" aria-labelledby="phase-4-header">
+              <div class="phase__body-inner">
+                <div class="phase__focus">
+                  <span class="phase__focus-label">Focus:</span>
+                  System design fundamentals, scalable architectures, caching, distributed systems, and database internals.
+                </div>
+                <div class="phase-projects-grid">
+
+                  <!-- Project 15 -->
+                  <article class="project-card"
+                    data-title="Distributed Cache Mini-Redis"
+                    data-status="completed"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="LRU LFU cache consistent hashing distributed systems eviction"
+                    data-tech="c++17 cmake google test"
+                    data-desc="Redis-like in-memory cache with LRU/LFU eviction and consistent hashing"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#15</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--success"><span class="status-dot status-dot--success" aria-hidden="true"></span> Completed</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Distributed Cache (Mini-Redis)</h3>
+                      <p class="project-card__desc">Redis-like in-memory key-value store with LRU/LFU eviction policies, consistent hashing for distributed nodes, and TTL expiration support.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">LRU / LFU</span>
+                        <span class="tag">Consistent Hashing</span>
+                        <span class="tag">Cache Eviction</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">GTest</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Distributed%20Cache%20System/mini-redis" target="_blank" rel="noopener" class="project-card__link" aria-label="View Distributed Cache on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 16 -->
+                  <article class="project-card"
+                    data-title="Real-Time Chat Application"
+                    data-status="in-progress"
+                    data-difficulty="⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="message queues WebSocket protocols pub-sub real-time"
+                    data-tech="c++17 cmake"
+                    data-desc="Real-time chat server with message queues, WebSocket-style pub/sub architecture"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#16</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--warning"><span class="status-dot status-dot--warning" aria-hidden="true"></span> In Progress</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐ Expert</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Real-Time Chat Application</h3>
+                      <p class="project-card__desc">Multi-room chat server demonstrating message queues, pub/sub patterns, connection pooling, and WebSocket-style real-time communication architecture.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Message Queues</span>
+                        <span class="tag">Pub/Sub</span>
+                        <span class="tag">Real-Time</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">Threads</span></div>
+                      <a href="https://github.com/indiser/DSA-Projects/tree/main/Real%20Time%20Chat%20Application" target="_blank" rel="noopener" class="project-card__link" aria-label="View Chat Application on GitHub"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg> View</a>
+                    </div>
+                  </article>
+
+                  <!-- Project 17 -->
+                  <article class="project-card"
+                    data-title="Search Engine Web Crawler"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="inverted index PageRank algorithm web crawling information retrieval"
+                    data-tech="c++17 cmake"
+                    data-desc="Mini search engine with inverted index and PageRank-style relevance scoring"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#17</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Search Engine &amp; Web Crawler</h3>
+                      <p class="project-card__desc">Mini search engine with an inverted index for full-text search, PageRank-inspired relevance scoring, and a BFS-based web crawler simulation.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Inverted Index</span>
+                        <span class="tag">PageRank</span>
+                        <span class="tag">Web Crawler</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 18 -->
+                  <article class="project-card"
+                    data-title="Version Control Mini-Git"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="Merkle trees diff algorithms version control content-addressable storage"
+                    data-tech="c++17 cmake"
+                    data-desc="Git-inspired version control with Merkle trees, diff, and commit history"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#18</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Version Control (Mini-Git)</h3>
+                      <p class="project-card__desc">Git-inspired VCS with Merkle tree-based commit graph, diff algorithms, branch management, and content-addressable object storage.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Merkle Trees</span>
+                        <span class="tag">Diff Algorithms</span>
+                        <span class="tag">Content-Addressed</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 19 -->
+                  <article class="project-card"
+                    data-title="Machine Learning Framework"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="matrix operations gradient descent neural network backpropagation"
+                    data-tech="c++17 cmake"
+                    data-desc="Lightweight ML framework with matrix ops, gradient descent, and neural net layers"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#19</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Machine Learning Framework</h3>
+                      <p class="project-card__desc">Lightweight ML framework with custom matrix operations, gradient descent optimizer, and a minimal neural network implementation from scratch.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Matrix Operations</span>
+                        <span class="tag">Gradient Descent</span>
+                        <span class="tag">Neural Networks</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 20 -->
+                  <article class="project-card"
+                    data-title="Database Engine"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="4"
+                    data-concepts="B+ trees query optimization ACID transactions storage engine"
+                    data-tech="c++17 cmake"
+                    data-desc="Mini relational database with B+ tree indexes, query optimization, and ACID properties"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#20</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Database Engine</h3>
+                      <p class="project-card__desc">Mini relational database with B+ tree index structures, SQL-like query parsing, transaction management, and ACID property enforcement.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">B+ Trees</span>
+                        <span class="tag">Query Optimization</span>
+                        <span class="tag">ACID</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                </div>
+
+                <div class="phase__completion">
+                  <p class="phase__key-learnings">
+                    <strong>Key Learnings:</strong> Caching Strategies, Distributed Systems, Indexing, Version Control, ML Basics, Database Internals
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ═══════════════════════════════
+               PHASE 5 — DISTRIBUTED SYSTEMS
+          ═══════════════════════════════ -->
+          <article class="phase reveal" role="listitem" data-phase="5">
+            <div class="phase__dot" aria-hidden="true"><div class="phase__dot-inner"></div></div>
+
+            <div class="phase__header" aria-expanded="false" aria-controls="phase-5-body" id="phase-5-header">
+              <div class="phase__header-left">
+                <div class="phase__number">P5</div>
+                <div class="phase__meta">
+                  <div class="phase__name">
+                    FAANG Interview Mastery
+                    <span class="badge badge--neutral">0% 📋</span>
+                  </div>
+                  <div class="phase__sub">Months 9–12 · Distributed Systems</div>
+                </div>
+              </div>
+              <div class="phase__header-right">
+                <div class="phase__progress-pill">
+                  <span class="phase__progress-text">0 / 4</span>
+                  <div class="phase__progress-mini">
+                    <div class="phase__progress-mini-bar" data-width="0" style="width:0%"></div>
+                  </div>
+                </div>
+                <span class="phase__toggle-icon" aria-hidden="true">▼</span>
+              </div>
+            </div>
+
+            <div class="phase__body" id="phase-5-body" role="region" aria-labelledby="phase-5-header">
+              <div class="phase__body-inner">
+                <div class="phase__focus">
+                  <span class="phase__focus-label">Focus:</span>
+                  Specialized, production-grade distributed systems: blockchain, recommendation engines, distributed transactions, and geospatial algorithms.
+                </div>
+                <div class="phase-projects-grid">
+
+                  <!-- Project 21 -->
+                  <article class="project-card"
+                    data-title="Blockchain Implementation"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="5"
+                    data-concepts="hash chains consensus algorithms proof of work blockchain cryptography"
+                    data-tech="c++17 cmake"
+                    data-desc="Minimal blockchain with PoW consensus, chain validation, and mining simulation"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#21</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Blockchain Implementation</h3>
+                      <p class="project-card__desc">Minimal blockchain with cryptographic hash chains, Proof-of-Work consensus, block validation, chain integrity verification, and mining simulation.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Hash Chains</span>
+                        <span class="tag">Consensus Algs</span>
+                        <span class="tag">Cryptography</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 22 -->
+                  <article class="project-card"
+                    data-title="Recommendation Engine"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="5"
+                    data-concepts="collaborative filtering matrix factorization ML algorithms recommendation"
+                    data-tech="c++17 cmake"
+                    data-desc="Collaborative filtering recommendation engine with matrix factorization"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#22</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Recommendation Engine</h3>
+                      <p class="project-card__desc">User-item recommendation system using collaborative filtering, matrix factorization (SVD), and content-based filtering with precision/recall evaluation.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Collaborative Filtering</span>
+                        <span class="tag">Matrix Factorization</span>
+                        <span class="tag">SVD</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 23 -->
+                  <article class="project-card"
+                    data-title="E-commerce Order Processing"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="5"
+                    data-concepts="distributed transactions inventory management SAGA pattern eventual consistency"
+                    data-tech="c++17 cmake"
+                    data-desc="Distributed order processing with SAGA pattern and inventory consistency guarantees"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#23</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">E-commerce Order Processing</h3>
+                      <p class="project-card__desc">Distributed order management system using the SAGA pattern for distributed transactions, inventory reservation, and eventual consistency guarantees.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">SAGA Pattern</span>
+                        <span class="tag">Distributed Txns</span>
+                        <span class="tag">Eventual Consistency</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                  <!-- Project 24 -->
+                  <article class="project-card"
+                    data-title="Ride-Sharing Service"
+                    data-status="not-started"
+                    data-difficulty="⭐⭐⭐⭐⭐"
+                    data-phase="5"
+                    data-concepts="geospatial algorithms matching systems KD-tree real-time dispatch"
+                    data-tech="c++17 cmake"
+                    data-desc="Ride-matching engine with geospatial KD-tree indexing and real-time dispatch"
+                  >
+                    <div class="project-card__header">
+                      <span class="project-card__number">#24</span>
+                      <div class="project-card__badges">
+                        <span class="badge badge--neutral"><span class="status-dot status-dot--neutral" aria-hidden="true"></span> Not Started</span>
+                        <span class="badge badge--purple">⭐⭐⭐⭐⭐ FAANG</span>
+                      </div>
+                    </div>
+                    <div class="project-card__body">
+                      <h3 class="project-card__title">Ride-Sharing Service</h3>
+                      <p class="project-card__desc">Driver-rider matching system using geospatial KD-tree indexing, real-time dispatch optimization, surge pricing algorithms, and route planning.</p>
+                      <div class="project-card__concepts">
+                        <span class="tag">Geospatial Algs</span>
+                        <span class="tag">KD-Tree</span>
+                        <span class="tag">Real-Time Dispatch</span>
+                      </div>
+                    </div>
+                    <div class="project-card__footer">
+                      <div class="project-card__tech"><span class="tag">C++17</span><span class="tag">CMake</span></div>
+                      <span class="project-card__link project-card__link--disabled" aria-label="Not yet available">🔒 Planned</span>
+                    </div>
+                  </article>
+
+                </div>
+
+                <div class="phase__completion">
+                  <p class="phase__key-learnings">
+                    <strong>Key Learnings:</strong> Blockchain, Recommendation Systems, Distributed Transactions, Geospatial Algorithms
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.timeline -->
+      </div><!-- /.container -->
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SKILLS SECTION
+    ───────────────────────────────────────── -->
+    <section id="skills" class="section" aria-label="Skills & Progress">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__eyebrow">Proficiency</div>
+          <h2 class="section__title">Skills &amp; <span class="gradient-text">Progress</span></h2>
+          <p class="section__desc">Measured proficiency across the core competency areas, based on completed projects.</p>
+        </div>
+
+        <div class="skills-layout">
+          <!-- Skill bars -->
+          <div class="skills-bars reveal">
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name"><span class="skill-item__icon" aria-hidden="true">🧩</span> Data Structures</span>
+                <span class="skill-item__percent">95%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Data Structures proficiency 95%">
+                <div class="skill-bar" data-width="95" data-delay="0"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name"><span class="skill-item__icon" aria-hidden="true">⚡</span> Algorithms</span>
+                <span class="skill-item__percent">85%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Algorithms proficiency 85%">
+                <div class="skill-bar" data-width="85" data-delay="100"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name"><span class="skill-item__icon" aria-hidden="true">⚙️</span> Modern C++17</span>
+                <span class="skill-item__percent">90%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Modern C++17 proficiency 90%">
+                <div class="skill-bar" data-width="90" data-delay="200"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name"><span class="skill-item__icon" aria-hidden="true">🧪</span> Testing &amp; QA</span>
+                <span class="skill-item__percent">95%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Testing and QA proficiency 95%">
+                <div class="skill-bar" data-width="95" data-delay="300"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item__header">
+                <span class="skill-item__name"><span class="skill-item__icon" aria-hidden="true">🏗️</span> System Design</span>
+                <span class="skill-item__percent">20%</span>
+              </div>
+              <div class="skill-track" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="System Design proficiency 20%">
+                <div class="skill-bar" data-width="20" data-delay="400" style="background:var(--warning)"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase progress summary + circular progress -->
+          <div class="reveal reveal--delay-2">
+            <div class="progress-summary-card" style="margin-bottom:var(--space-6)">
+              <div class="progress-summary-card__circle">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#3B82F6"/>
+                      <stop offset="100%" style="stop-color:#8B5CF6"/>
+                    </linearGradient>
+                  </defs>
+                  <circle class="progress-circle-track" cx="50" cy="50" r="45"/>
+                  <circle class="progress-circle-bar" cx="50" cy="50" r="45"/>
+                </svg>
+                <div class="progress-center-text">
+                  <div class="progress-center-value">58%</div>
+                  <div class="progress-center-label">Complete</div>
+                </div>
+              </div>
+              <div class="phase-progress-list">
+                <div class="phase-progress-item">
+                  <div class="phase-progress-item__header">
+                    <span class="phase-progress-item__name">Phase 1: Foundation</span>
+                    <span class="phase-progress-item__meta">6/6</span>
+                  </div>
+                  <div class="phase-progress-track">
+                    <div class="phase-progress-bar phase-progress-bar--complete" data-width="100"></div>
+                  </div>
+                </div>
+                <div class="phase-progress-item">
+                  <div class="phase-progress-item__header">
+                    <span class="phase-progress-item__name">Phase 2: Intermediate</span>
+                    <span class="phase-progress-item__meta">4/4</span>
+                  </div>
+                  <div class="phase-progress-track">
+                    <div class="phase-progress-bar phase-progress-bar--complete" data-width="100"></div>
+                  </div>
+                </div>
+                <div class="phase-progress-item">
+                  <div class="phase-progress-item__header">
+                    <span class="phase-progress-item__name">Phase 3: Advanced</span>
+                    <span class="phase-progress-item__meta">4/4</span>
+                  </div>
+                  <div class="phase-progress-track">
+                    <div class="phase-progress-bar phase-progress-bar--complete" data-width="100"></div>
+                  </div>
+                </div>
+                <div class="phase-progress-item">
+                  <div class="phase-progress-item__header">
+                    <span class="phase-progress-item__name">Phase 4: System Design</span>
+                    <span class="phase-progress-item__meta">1/6</span>
+                  </div>
+                  <div class="phase-progress-track">
+                    <div class="phase-progress-bar phase-progress-bar--partial" data-width="17"></div>
+                  </div>
+                </div>
+                <div class="phase-progress-item">
+                  <div class="phase-progress-item__header">
+                    <span class="phase-progress-item__name">Phase 5: Distributed</span>
+                    <span class="phase-progress-item__meta">0/4</span>
+                  </div>
+                  <div class="phase-progress-track">
+                    <div class="phase-progress-bar phase-progress-bar--none" data-width="0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         TIMELINE / ROADMAP OVERVIEW
+    ───────────────────────────────────────── -->
+    <section id="timeline" class="section section--alt" aria-label="Learning Timeline">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__eyebrow">Journey</div>
+          <h2 class="section__title">12-Month <span class="gradient-text">Timeline</span></h2>
+          <p class="section__desc">A structured 12-month learning journey with clear milestones and measurable outcomes.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4);">
+
+          <div class="principle-card reveal reveal--delay-1" style="border-left:3px solid var(--success);">
+            <div class="principle-card__icon">✅</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);">
+              <h3 class="principle-card__title">Months 1–2</h3>
+              <span class="badge badge--success">Done</span>
+            </div>
+            <p class="principle-card__desc">Foundation — Arrays, Linked Lists, Stacks, Queues, Hash Tables, Trees. 6 projects.</p>
+          </div>
+
+          <div class="principle-card reveal reveal--delay-2" style="border-left:3px solid var(--success);">
+            <div class="principle-card__icon">✅</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);">
+              <h3 class="principle-card__title">Months 2–4</h3>
+              <span class="badge badge--success">Done</span>
+            </div>
+            <p class="principle-card__desc">Intermediate — O(n log n) sorting, Graph traversals, Tries, Priority Queues. 4 projects.</p>
+          </div>
+
+          <div class="principle-card reveal reveal--delay-3" style="border-left:3px solid var(--success);">
+            <div class="principle-card__icon">✅</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);">
+              <h3 class="principle-card__title">Months 4–6</h3>
+              <span class="badge badge--success">Done</span>
+            </div>
+            <p class="principle-card__desc">Advanced — Dijkstra's, A*, Dynamic Programming, Sliding Window. 4 projects.</p>
+          </div>
+
+          <div class="principle-card reveal reveal--delay-4" style="border-left:3px solid var(--warning);">
+            <div class="principle-card__icon">🔄</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);">
+              <h3 class="principle-card__title">Months 6–9</h3>
+              <span class="badge badge--warning">Active</span>
+            </div>
+            <p class="principle-card__desc">System Design — Distributed Cache, Chat, Search Engine, Database Internals. 6 projects.</p>
+          </div>
+
+          <div class="principle-card reveal reveal--delay-5" style="border-left:3px solid var(--border-secondary);">
+            <div class="principle-card__icon">📋</div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);">
+              <h3 class="principle-card__title">Months 9–12</h3>
+              <span class="badge badge--neutral">Planned</span>
+            </div>
+            <p class="principle-card__desc">Distributed Systems — Blockchain, Recommendation Engine, Geospatial Algorithms. 4 projects.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         TECHNOLOGY STACK
+    ───────────────────────────────────────── -->
+    <section id="tech" class="section" aria-label="Technology Stack">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__eyebrow">Stack</div>
+          <h2 class="section__title">Technology <span class="gradient-text">Stack</span></h2>
+          <p class="section__desc">Production-grade toolchain — the same stack used in top engineering teams.</p>
+        </div>
+
+        <div class="tech-grid">
+
+          <article class="tech-card reveal reveal--delay-1">
+            <div class="tech-card__icon" aria-hidden="true">⚡</div>
+            <h3 class="tech-card__name">C++17</h3>
+            <p class="tech-card__desc">RAII, smart pointers, structured bindings, lambdas, std::optional</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-2">
+            <div class="tech-card__icon" aria-hidden="true">🔨</div>
+            <h3 class="tech-card__name">CMake</h3>
+            <p class="tech-card__desc">Cross-platform builds, FetchContent, multi-target project configuration</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-3">
+            <div class="tech-card__icon" aria-hidden="true">🧪</div>
+            <h3 class="tech-card__name">Google Test</h3>
+            <p class="tech-card__desc">Unit tests, fixtures, parameterized tests, mocking and test doubles</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-4">
+            <div class="tech-card__icon" aria-hidden="true">🐙</div>
+            <h3 class="tech-card__name">Git</h3>
+            <p class="tech-card__desc">Version control, branching strategy, commit hygiene, GitHub workflows</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-1">
+            <div class="tech-card__icon" aria-hidden="true">📚</div>
+            <h3 class="tech-card__name">STL</h3>
+            <p class="tech-card__desc">Containers, iterators, algorithms — vector, map, unordered_map, priority_queue</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-2">
+            <div class="tech-card__icon" aria-hidden="true">🧮</div>
+            <h3 class="tech-card__name">Algorithms</h3>
+            <p class="tech-card__desc">Big O analysis, time/space complexity, algorithmic trade-off evaluation</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-3">
+            <div class="tech-card__icon" aria-hidden="true">🏗️</div>
+            <h3 class="tech-card__name">System Design</h3>
+            <p class="tech-card__desc">Scalable architectures, CAP theorem, caching, sharding, load balancing</p>
+          </article>
+
+          <article class="tech-card reveal reveal--delay-4">
+            <div class="tech-card__icon" aria-hidden="true">🎯</div>
+            <h3 class="tech-card__name">Design Patterns</h3>
+            <p class="tech-card__desc">OOP principles, SOLID, Factory, Observer, Singleton, Strategy patterns</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="#hero" class="footer__logo" aria-label="DSA Roadmap home">
+            <span class="footer__logo-icon" aria-hidden="true">D</span>
+            DSA Roadmap
+          </a>
+        </div>
+
+        <!-- Links -->
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="#roadmap"  class="footer__link">Projects</a>
+          <a href="#skills"   class="footer__link">Skills</a>
+          <a href="#tech"     class="footer__link">Tech Stack</a>
+          <a
+            href="https://github.com/indiser/DSA-Projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__link"
+            aria-label="GitHub repository (opens in new tab)"
+          >GitHub ↗</a>
+        </nav>
+
+        <!-- Copyright -->
+        <div class="footer__copy">
+          <div>MIT License · © 2026 Rana B</div>
+          <div class="footer__tech">
+            Built with <span>HTML</span>, <span>CSS</span>, <span>Vanilla JS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       BACK TO TOP
+  ═══════════════════════════════════════════ -->
+  <button
+    id="back-to-top"
+    aria-label="Back to top"
+    title="Back to top"
+  >↑</button>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS — defer for performance
+  ═══════════════════════════════════════════ -->
+  <script src="js/theme.js" defer></script>
+  <script src="js/roadmap.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+</body>
+</html>
