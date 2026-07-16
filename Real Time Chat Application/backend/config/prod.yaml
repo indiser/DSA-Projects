@@ -1,0 +1,56 @@
+server:
+  host: 0.0.0.0
+  port: 8080
+  threads: 16
+  max_connections: 10000
+
+database:
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  user: ${DB_USER}
+  password: ${DB_PASS}
+  dbname: ${DB_NAME}
+  pool_size: 20
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  password: ${REDIS_PASS}
+  db: 0
+  pool_size: 20
+  connect_timeout_ms: 1000
+  socket_timeout_ms: 2000
+  max_retries: 3
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiry_seconds: 86400
+
+auth:
+  max_login_attempts: 5
+  login_window_seconds: 300
+  session_ttl_seconds: 86400
+
+messaging:
+  max_message_length: 4096
+  history_limit: 50
+  rate_limit_per_minute: 60
+
+presence:
+  ttl_seconds: 30
+  refresh_seconds: 20
+  typing_ttl_seconds: 5
+
+websocket:
+  ping_interval_seconds: 20
+  pong_timeout_seconds: 10
+
+logging:
+  level: warn
+  file: logs/app.log
+  max_size_mb: 100
+  max_files: 10
+
+push:
+  fcm_key: ${FCM_KEY}
+  apns_cert: ${APNS_CERT_PATH}

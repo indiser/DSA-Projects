@@ -1,0 +1,22 @@
+redis:
+  host: localhost
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+  connect_timeout_ms: 1000
+  socket_timeout_ms: 2000
+  max_retries: 3
+
+  # Key TTLs (seconds)
+  ttl:
+    session: 86400
+    presence: 30
+    typing: 5
+    message_cache: 600
+
+  # Pub/Sub channels
+  channels:
+    message: "chat:message"
+    presence: "chat:presence"
+    typing: "chat:typing"

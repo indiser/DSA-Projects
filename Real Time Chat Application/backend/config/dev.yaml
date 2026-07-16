@@ -1,0 +1,56 @@
+server:
+  host: "127.0.0.1"
+  port: 8080
+  threads: 4
+  max_connections: 1000
+
+database:
+  host: "127.0.0.1"
+  port: 5432
+  user: "chat_user"
+  password: "your_password"
+  dbname: "chat_db"
+  pool_size: 10
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+  connect_timeout_ms: 1000
+  socket_timeout_ms: 2000
+  max_retries: 3
+
+jwt:
+  secret: "dev_secret_change_in_prod"
+  expiry_seconds: 86400
+
+auth:
+  max_login_attempts: 10
+  login_window_seconds: 300
+  session_ttl_seconds: 86400
+
+messaging:
+  max_message_length: 4096
+  history_limit: 50
+  rate_limit_per_minute: 120
+
+presence:
+  ttl_seconds: 30
+  refresh_seconds: 20
+  typing_ttl_seconds: 5
+
+websocket:
+  ping_interval_seconds: 20
+  pong_timeout_seconds: 10
+
+logging:
+  level: debug
+  file: logs/app.log
+  max_size_mb: 50
+  max_files: 5
+
+push:
+  fcm_key: ""
+  apns_cert: ""

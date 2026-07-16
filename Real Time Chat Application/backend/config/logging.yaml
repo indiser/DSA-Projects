@@ -1,0 +1,45 @@
+logging:
+  level: debug          # trace | debug | info | warn | error | critical
+
+  # Console sink
+  console:
+    enabled: true
+    color: true
+
+  # File sinks — one per subsystem
+  files:
+    app:
+      path: logs/app.log
+      max_size_mb: 50
+      max_files: 5
+
+    auth:
+      path: logs/auth.log
+      max_size_mb: 20
+      max_files: 3
+
+    websocket:
+      path: logs/websocket.log
+      max_size_mb: 50
+      max_files: 5
+
+    database:
+      path: logs/database.log
+      max_size_mb: 20
+      max_files: 3
+
+    messages:
+      path: logs/messages.log
+      max_size_mb: 50
+      max_files: 5
+
+    error:
+      path: logs/error.log
+      level: error
+      max_size_mb: 20
+      max_files: 10
+
+  # Flush policy
+  flush:
+    on_level: error       # always flush on error and above
+    interval_seconds: 5   # periodic flush for lower levels
