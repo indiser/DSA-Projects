@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: docker/postgres.Dockerfile
+    environment:
+      POSTGRES_USER: chat_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: chat_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../backend/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chat_user -d chat_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    build:
+      context: .
+      dockerfile: docker/redis.Dockerfile
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV=dev
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=chat_user
+      - DB_PASS=your_password
+      - DB_NAME=chat_db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../backend/config:/app/config
+      - ../backend/logs:/app/logs
+
+volumes:
+  postgres_data:
