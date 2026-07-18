@@ -150,8 +150,8 @@ Phase 5: ░░░░░░░░░░░░░░░░░░░░   0% (0/4)
 | # | Project | Core Concepts | Difficulty | Status |
 |:-:|:--------|:--------------|:----------:|:------:|
 | 15 | **Distributed Cache (Mini-Redis)** | LRU/LFU cache, consistent hashing | ⭐⭐⭐⭐⭐ | 🟢 [View](https://github.com/indiser/DSA-Projects/tree/main/Distributed%20Cache%20System/mini-redis) |
-| 16 | **Real-Time Chat Application** | Message queues, WebSocket protocols | ⭐⭐⭐⭐ | 🟡 In Progress |
-| 17 | **Search Engine & Web Crawler** | Inverted index, PageRank algorithm | ⭐⭐⭐⭐⭐ | ⚫ Not Started |
+| 16 | **Real-Time Chat Application** | Message queues, WebSocket protocols | ⭐⭐⭐⭐ | 🟢 [View](https://github.com/indiser/DSA-Projects/tree/main/Real%20Time%20Chat%20Application) |
+| 17 | **Search Engine & Web Crawler** | Inverted index, PageRank algorithm | ⭐⭐⭐⭐⭐ | 🟡 In Progress |
 | 18 | **Version Control (Mini-Git)** | Merkle trees, diff algorithms | ⭐⭐⭐⭐⭐ | ⚫ Not Started |
 | 19 | **Machine Learning Framework** | Matrix operations, gradient descent | ⭐⭐⭐⭐⭐ | ⚫ Not Started |
 | 20 | **Database Engine** | B+ trees, query optimization, ACID | ⭐⭐⭐⭐⭐ | ⚫ Not Started |
